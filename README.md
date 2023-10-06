@@ -6,5 +6,5 @@ Instructor and Team Lead : Mr. Kulanshu Sharma
 TechElites Team Members -
    (1) Operational Layer : Vasanti
    (2) UI Layer : Akshima, Nidhi, Priya, Riya, Nishita
-   (3) Server Layer : Vaishnavi, Aishwarya, Anshika
-   (4) Database Layer : Divya, Garvita
+   (3) Server Layer : Vaishnavi, Aishwarya,Garvita 
+   (4) Database Layer : Divya, Anshika
