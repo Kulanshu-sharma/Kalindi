@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial Black, ComicSansMS;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 20px;
+            margin: 5px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+        .error-border {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><centre>Sign Up</centre></h1>
+        <select id="userType">
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+            <option value="alumni">Alumni</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        <input type="text" id="name" placeholder="Name">
+        <input type="password" id="password" placeholder="Password">
+        <input type="password" id="repassword" placeholder="Re-enter Password">
+        <p class="error-message" id="passwordError">Passwords do not match</p>
+        <button id="signupButton" onclick="validateForm()">Sign Up</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            var userType = document.getElementById('userType').value;
+            var name = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+            var repassword = document.getElementById('repassword').value;
+            var passwordError = document.getElementById('passwordError');
+
+            if (password !== repassword) {
+                passwordError.style.display = 'block';
+                document.getElementById('password').classList.add('error-border');
+                document.getElementById('repassword').classList.add('error-border');
+            } else {
+                passwordError.style.display = 'none';
+                document.getElementById('password').classList.remove('error-border');
+                document.getElementById('repassword').classList.remove('error-border');
+                alert('Sign up successful for ' + userType + ' ' + name);
+            }
+        }
+    </script>
+</body>
+</html>
