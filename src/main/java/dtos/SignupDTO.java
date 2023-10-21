@@ -6,6 +6,7 @@ public class SignupDTO {
 	private String firstName;
 	private String lastName;
 	private String password;
+	private String course;
 	
 	
 	public int getStudentId() {
@@ -32,6 +33,13 @@ public class SignupDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	
 	
 	
 }
