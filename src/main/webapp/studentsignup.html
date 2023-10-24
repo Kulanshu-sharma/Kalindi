@@ -12,6 +12,9 @@
             border: 2px solid #ccc;
             border-radius: 5px;
         }
+        h2 {
+    text-align: center;
+        }
         input[type="text"], input[type="password"] {
             width: 90%;
             padding: 20px;
@@ -29,21 +32,34 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1><centre>Sign Up</centre></h1>
-        <select id="userType">
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
-            <option value="alumni">Alumni</option>
-            <option value="teacher">Teacher</option>
-        </select>
-        <input type="text" id="name" placeholder="Name">
-        <input type="password" id="password" placeholder="Password">
-        <input type="password" id="repassword" placeholder="Re-enter Password">
-        <p class="error-message" id="passwordError">Passwords do not match</p>
-        <button id="signupButton" onclick="validateForm()">Sign Up</button>
-    </div>
+   <div class="container">
+        <h1> Signup</h1>
+        <form id="signup-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
 
+            <label for="course">Course:</label>
+            <input type="text" id="course" required>
+
+            <label for="college">College:</label>
+            <input type="text" id="college" required>
+
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <label for="repassword">Re-enter Password:</label>
+            <input type="password" id="repassword" required>
+            <div id="error-message" class="error"></div>
+
+            <button type="button" id="submit-button">Sign Up</button>
+        </form>
+    </div>
     <script>
         function validateForm() {
             var userType = document.getElementById('userType').value;
