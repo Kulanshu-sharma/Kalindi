@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Kalindi College : University of Delhi</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://www.kalindicollege.in/wp-content/themes/kalindi/assets/images/kc-logo.png"> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<section class="sub-header">
+        <nav>
+            <a href="index.html" class="logo"><img src="logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fas fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="frontpage.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="admission.html">ADMISSION</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="principal.html">INFO</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="studentsignup.html">SIGNUP</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <h1>About Us</h1>
+
+    </section>
+
+    <!-- About us content -->
+
+    <section class="about-us">
+
+        <div class="row">
+            <div class="about-col">
+                <h1>Kalindi College</h1>
+                <p>The College has come a long way since its inception in 1967 and is now seen as a destination where students can embrace their future with hope and confidence. Years of hard work put in by all stakeholders show us the way forward. As a constituent college of University of Delhi, Kalindi College strives to cater to higher education to young women with a vision of a new, fulfilling future for all. A nourishing environment supported by a combination of competent infrastructure and a dedicated teaching faculty helps our students to achieve the highest accolades in Academics, Sports and other Extra-Curricular Activities.
+                    <br>The College had a humble beginning as Government College Devnagar; within a year the college was shifted to the present location, again a Government School building, in East Patel Nagar.
+                    <br>The College initially offered Undergraduate Programme Courses in Humanities and pure Science (Group B). The introduction of Humanities Honours Courses in 1971; Commerce (Prog.) in 1977; Honours Courses in Sciences - Physics (1990), Mathematics (1992), Computer Science (1997); professional course of Journalism (1995); Honours in Commerce (1998) reflect the evolutionary flow of Kalindi. Postgraduate Courses in Political Science (1987), Hindi (1991) and Sanskrit (1992) were also added in its kitty. Recently Honours courses in Botany, Zoology, Chemistry and Geography are also introduced.
+                    <br>Located in its own beautiful campus of 8.25 Acre in East Patel Nagar the College, offers courses under Non-Collegiate and School of Open Learning Centre, along with its regular courses and contemporary Add-on Courses such as Video Production Foreign Languages (French and Chinese), Tourism. With a team of dedicated and efficient teachers and strong and co-operative administrative staff, the college provides its students an environment conducive to all-round development.
+                    <br>Kalindis motto conveys three virtues of human life: knowledge, modesty and sense of duty. During all these years, the college has not only made substantial progress in the field of education, but also immensely contributed in the Nation building. Many of its students and alumni have reached to the great heights and achieved National and International recognition. The college strives to provide an intellectual environment for the emancipation of the intellect and spirit that stimulates both critical thinking and imagination.</p>
+                <a href="#" class="btn exp-btn">EXPLORE NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="about2.jpg">
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!--FOOTER-->
+
+<section class="footer">
+    <h4>About Us</h4>
+    <div class="icon">
+        <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
+        <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
+        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+        <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
+        <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+    </div>
+    <p>Made with &hearts; by Tech Elites.</p>
+    
+</section>
+
+<!--COPYRIGHT-->
+
+<div class="copyright">
+    <p>&copy; 2023 Kalindi College All rights reserved.</p>
+</div>
+
+<!-- JAVASCRIPT-->
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>
+</body>
+</html>
