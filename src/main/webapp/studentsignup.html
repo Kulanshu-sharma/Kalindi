@@ -2,29 +2,34 @@
 <html>
 <head>
     <style>
-        body {
+       .header {
+    min-height: 10vh;
+    width: 100%;
+}
+
+
+nav img {
+    width: 257.9px;
+    height: 73.7px;
+}
+ body {
             font-family: Arial Black, ComicSansMS;
-             background-image:url("https://www.collegebatch.com/static/clg-gallery/kalindi-college-new-delhi-213619.jpg");
-    	    background-size: cover;
-            
-        }
-      body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.3); /* White background with 50% opacity */
-    z-index: -1; /* Place the pseudo-element behind the content */
 }
          .container {
             max-width: 300px;
             margin: 0 auto;
             padding: 5px;
-            border: 1px solid #000000;
+            border: 1px solid #808080;
             border-radius: 2px;
             }
+            .split right{
+				flex: 0 0 58.333333%;
+                max-width: 58.333333%;
+			}
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }    
        h1 {
                text-align: center;
         }
@@ -40,12 +45,24 @@
         .error-border {
             border: 1px solid red;
         }
+
+.copyright{
+    background-color: darkgray;
+    text-align: center;
+}
     </style>
 </head>
-<body>
+	<section class="header">
+        <nav>
+            <a href="index.html" class="logo"><img src="logo.png"></a>
+     </nav></section> 
+     <div class="split left">	 
+		 <img src ="https://www.collegebatch.com/static/clg-gallery/kalindi-college-new-delhi-213619.jpg" width="50%">
+	 </div>
+   <div class="split right"> 
    <div class="container">
         <h1> Signup</h1>
-        <form id="signup-form">
+        <form id="signup-form" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" required><br>
 
@@ -63,20 +80,35 @@
 
             <label for="repassword">Re-enter Password:</label>
             <input type="password" id="repassword" required><br>
-            <div id="error-message" class="error"></div>
-            
-            <button onclick="checkPassword()">Submit</button>
+            <div class="error-message" id="'passwordError"> Password doesn't match </div>
+
+            <button type="button" onclick="validateform()">Submit</button>
         </form>
     </div>
+    </div>
+
+<!--COPYRIGHT-->
+
+<div class="copyright">
+    <p>&copy; 2023 Kalindi College All rights reserved.</p>
+</div>
     <script>
-      function checkPassword() {
-          var userType = document.getElementById('userType').value;
-          var name = document.getElementById('name').value;
+      function validateform() {
+  //        var userType = document.getElementById('userType').value;
+  //        var name = document.getElementById('name').value;
           var password = document.getElementById('password').value;
           var repassword = document.getElementById('repassword').value;
           var passwordError = document.getElementById('passwordError');
 
-          if (password !== repassword) {
+          if (password === "" || repassword === "") {
+                passwordError.textContent = "Password fields cannot be empty";
+                passwordError.style.display = 'block';
+                document.getElementById('password').classList.add('error-border');
+                document.getElementById('repassword').classList.add('error-border');
+          }
+
+          else if (password !== repassword) {
+              passwordError.textContent="Password do not match";
               passwordError.style.display = 'block';
               document.getElementById('password').classList.add('error-border');
               document.getElementById('repassword').classList.add('error-border');
@@ -84,10 +116,9 @@
               passwordError.style.display = 'none';
               document.getElementById('password').classList.remove('error-border');
               document.getElementById('repassword').classList.remove('error-border');
-              alert('Sign up successful for ' + userType + ' ' + name);
+              alert('Sign up successful !!');
           }
       }
-  </script>
-
+      </script>
 </body>
 </html>
