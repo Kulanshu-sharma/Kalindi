@@ -148,7 +148,7 @@ h1{
 .course-col {
     flex-basis: 31%;
     background-color: #fff3f3;
-    border-radius: 10px;
+    border-radius: 50px;
     margin-bottom: 5%;
     padding: 20px 12px;
     box-sizing: border-box;
@@ -327,12 +327,12 @@ h3{
 .sub-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7),url(about.jpg));
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,8,8,0.7)), url(header.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
     text-align: center;
-    color: #000;
+    color: whitesmoke;
 }
 
 .sub-header h1{
@@ -342,7 +342,7 @@ h3{
 .about-us {
     width: 80%;
     margin: auto;
-    padding-top: 80px;
+   
     padding-bottom: 50px;
 
 }
@@ -530,6 +530,7 @@ h3{
 	padding-left: 40%;
 	padding-right: 50%;
 	margin-bottom: 15px;
+	padding-top: 4%;
 }
 
 .principal p{
