@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <select name="userType" id="userType">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="submit" value="LOGIN">
+        <p id="errorText" class="error"></p>
+        <div class="button_group"
+        
+        </div>
+        <DIV class="fotter">
+			<P><a href="#"> Forgot Password?</a></P>
+			<P>Don't have an accout?<a href="#">SignUp</a></P>
+		</DIV>
+    </form>
+
+</div>
+
+<script>
+    function validateForm() {
+        // You can add authentication logic here.
+        // For this example, we're just showing an error message.
+        var userType = document.getElementById("userType").value;
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+
+        if (userType === "student" && name === "student" && password === "studentpass") {
+            // Student authentication
+            return true;
+        } else if (userType === "teacher" && name === "teacher" && password === "teacherpass") {
+            // Teacher authentication
+            return true;
+        } else {
+            document.getElementById("errorText").textContent = "Invalid credentials.";
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
