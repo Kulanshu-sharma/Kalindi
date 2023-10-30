@@ -23,6 +23,7 @@ public class TimetableDTO {
 	private String date;
 	private String status;
 	private String statusColor;
+	private String mode;
 	
 	public int getSlotId() {
 		return slotId;
@@ -149,6 +150,12 @@ public class TimetableDTO {
 	}
 	public void setStatusColor(String statusColor) {
 		this.statusColor = statusColor;
+	}
+	public String getMode() {
+		return mode;
+	}
+	public void setMode(String mode) {
+		this.mode = mode;
 	}
 	
 	
