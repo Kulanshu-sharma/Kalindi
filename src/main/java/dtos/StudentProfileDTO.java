@@ -10,6 +10,8 @@ public class StudentProfileDTO {
 	private String courseName;
 	private String departmentName;
 	private int semester;
+	private int courseId;
+	private int departmentId;
 	
 	
 	public String getEnrollmentNo() {
@@ -59,6 +61,18 @@ public class StudentProfileDTO {
 	}
 	public void setSemester(int semester) {
 		this.semester = semester;
+	}
+	public int getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+	public int getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
 	}
 	
 	

@@ -12,6 +12,7 @@ import java.util.List;
 import dtos.ParamDTO;
 import dtos.ReplyDTO;
 import dtos.SignupDTO;
+import dtos.StudentProfileDTO;
 import dtos.TimetableDTO;
 
 public class DBOperations {
@@ -69,7 +70,7 @@ public class DBOperations {
 						
 			stmt = connection.prepareStatement(query);
 			stmt.setInt(1,day);
-			stmt.setInt(2,timetableDTO.getCollegeId());
+			stmt.setInt(2,101);
 			stmt.setInt(3,timetableDTO.getDepartmentId());
 			stmt.setInt(4,timetableDTO.getCourseId());
 			stmt.setInt(5,timetableDTO.getSemesterId());
@@ -105,51 +106,79 @@ public class DBOperations {
 		return replyDTO;
 	}
 
-	public static ReplyDTO Login(ParamDTO paramDTO) {
+	public static ReplyDTO login(ParamDTO paramDTO) {
 		ReplyDTO replyDTO = new ReplyDTO();
         String username=(String)paramDTO.getParams().get("userID");
         String password=(String)paramDTO.getParams().get("password");
-        boolean authentic=false;
-        
-        
         try {
-           
-            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+            String sql = "SELECT STUDENT_NAME,EMAIL_ID,COURSE_ID,SEMESTER,DEPARTMENT_ID FROM student WHERE ENROLLMENT_NO = ? AND PASSWORD = ?";
             Connection con = DBConnection.getConnection();
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, username);
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
-            
+            StudentProfileDTO studentProfileDTO = null;
             if (resultSet.next()) {
-                System.out.println("Login successful!");
-                authentic=true;
-                
+            	studentProfileDTO = new StudentProfileDTO();
+            	studentProfileDTO.setFullName(resultSet.getString("STUDENT_NAME"));
+            	studentProfileDTO.setEmailId(resultSet.getString("EMAIL_ID"));
+            	studentProfileDTO.setCourseId(resultSet.getInt("COURSE_ID"));
+            	studentProfileDTO.setCourseName(getCourseNameFromCourseId(resultSet.getInt("COURSE_ID")));
+            	studentProfileDTO.setSemester(resultSet.getInt("SEMESTER"));
+            	studentProfileDTO.setDepartmentId(resultSet.getInt("DEPARTMENT_ID"));
+            	studentProfileDTO.setDepartmentName(getDepartmentNameFromDepartmentId(resultSet.getInt("DEPARTMENT_ID")));
+            	replyDTO.setData(studentProfileDTO);
             } else {
-                System.out.println("Invalid username or password.");
-                
+            	replyDTO.setErrFlag(true);
+    			replyDTO.setErrMsg("Invalid username or password!!!"); 
             }
-            try {
-            	if (authentic=true) {
-
-            		String query = "SELECT * FROM Student WHERE username = ?";
-            		PreparedStatement statement1 = con.prepareStatement(query);
-            		statement1.setString(1, username);
-            		statement1.executeQuery();
-            	}
-            }catch (SQLException e) {
-            	e.printStackTrace();
-            	
-            }
-
-          
-            resultSet.close();
-            statement.close();
-            con.close();
+           
         } catch (SQLException e) {
         	e.printStackTrace();
+        	replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Internal Server Error!!!"); 
         }
         return replyDTO;
+	}
+	
+	public static String getCourseNameFromCourseId(int courseId) {
+		String courseName = "";
+		try {
+
+			String sql = "SELECT COURSE_NAME FROM course_tbl WHERE COURSE_ID = ?";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setInt(1,courseId);
+			ResultSet resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+				courseName = resultSet.getString("COURSE_NAME");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return courseName;
+	}
+	
+	public static String getDepartmentNameFromDepartmentId(int departmentId) {
+		String departmentName = "";
+		try {
+
+			String sql = "SELECT DEPARTMENT_NAME FROM department_tbl WHERE DEPARTMENT_ID = ?";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setInt(1,departmentId);
+			ResultSet resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+				departmentName = resultSet.getString("DEPARTMENT_NAME");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return departmentName;
 	}
 	
 }

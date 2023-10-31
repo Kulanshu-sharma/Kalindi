@@ -47,7 +47,7 @@ public class StudentDashboardBB {
 		paramMap.put(Constants.PASSWORD, password);
 		paramMap.put("isAlreadyLogInForHome",alreadyLoggegInForHomepage);
 		paramDTO.setParams(paramMap);
-		ReplyDTO replyDTO = DBOperations.Login(paramDTO);
+		ReplyDTO replyDTO = DBOperations.login(paramDTO);
 		if(replyDTO.isErrFlag()) {
 			loginSuccessfull = "none";
 			displayLoginErrorScreen="block";
@@ -72,7 +72,12 @@ public class StudentDashboardBB {
 		    request.getSession().setAttribute(Constants.USER_ID,userName);
 		    request.getSession().setAttribute(Constants.PASSWORD,password);
 		    
-		    //Fetching Appointment list for that particular patient...
+		    //Fetching Timetable list for that particular student...
+		    TimetableDTO timetableDTO = new TimetableDTO();
+		    timetableDTO.setCourseId(userProfileDTO.getCourseId());
+		    timetableDTO.setDepartmentId(userProfileDTO.getDepartmentId());
+		    timetableDTO.setSemesterId(userProfileDTO.getSemester());
+		    paramDTO.setData(timetableDTO);
 		    replyDTO = DBOperations.getStudentTimeTable(paramDTO);
 		    timeTableList = (List<TimetableDTO>) replyDTO.getData();
 		   
