@@ -9,6 +9,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+import dtos.BinaryDTO;
 import dtos.ParamDTO;
 import dtos.ReplyDTO;
 import dtos.SignupDTO;
@@ -32,10 +33,17 @@ public class DBOperations {
 		SignupDTO signupDTO = (SignupDTO) paramDTO.getData();
 		Connection con = DBConnection.getConnection();
 		try {
-			PreparedStatement stmt= con.prepareStatement("insert into STUDENT values(?,?,?)");
-			stmt.setInt(1,signupDTO.getStudentId());
-			stmt.setString(2,signupDTO.getFirstName()+" "+signupDTO.getLastName());
-			stmt.setString(3,signupDTO.getPassword());
+			PreparedStatement stmt= con.prepareStatement("insert into STUDENT values(?,?,?,?,?,?,?)");
+			stmt.setInt(1,1001);
+			stmt.setString(2,signupDTO.getFirstName());
+			stmt.setString(3,signupDTO.getCollege_Rollno());
+			stmt.setString(4,signupDTO.getEnrollment_No());
+			stmt.setString(5,signupDTO.getEmail_ID());
+			stmt.setString(2,signupDTO.getFirstName());
+			stmt.setInt(6,signupDTO.getDepartmentId());
+			stmt.setInt(7,signupDTO.getCourseId());
+			stmt.setInt(8,signupDTO.getSemester());
+			stmt.setString(9,signupDTO.getPassword());
 			stmt.executeUpdate();
 			replyDTO.setErrFlag(false);
 			replyDTO.setMsg("Student with Student ID "+signupDTO.getStudentId()+" registered Successfully!!!");
@@ -141,7 +149,7 @@ public class DBOperations {
         return replyDTO;
 	}
 	
-	public static String getCourseNameFromCourseId(int courseId) {
+	private static String getCourseNameFromCourseId(int courseId) {
 		String courseName = "";
 		try {
 
@@ -161,7 +169,7 @@ public class DBOperations {
 		return courseName;
 	}
 	
-	public static String getDepartmentNameFromDepartmentId(int departmentId) {
+	private static String getDepartmentNameFromDepartmentId(int departmentId) {
 		String departmentName = "";
 		try {
 
@@ -179,6 +187,52 @@ public class DBOperations {
 			e.printStackTrace();
 		}
 		return departmentName;
+	}
+	
+	public static ReplyDTO listOfCourses() {
+		ReplyDTO replyDTO = new ReplyDTO();
+		List<BinaryDTO> binaryDTOs = new ArrayList<BinaryDTO>();
+		BinaryDTO binaryDTO = null;
+		try {
+
+			String sql = "SELECT COURSE_ID,COURSE_NAME FROM course_tbl";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+
+			while(resultSet.next()) {
+				binaryDTO = new BinaryDTO(resultSet.getInt("COURSE_ID"),resultSet.getString("COURSE_NAME"));
+				binaryDTOs.add(binaryDTO);
+			}
+            replyDTO.setData(binaryDTOs);
+		} catch (SQLException e) {
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Server Error Encountered!!!"); 
+		}
+		return replyDTO;
+	}
+	
+	public static ReplyDTO listOfDepartments() {
+		ReplyDTO replyDTO = new ReplyDTO();
+		List<BinaryDTO> binaryDTOs = new ArrayList<BinaryDTO>();
+		BinaryDTO binaryDTO = null;
+		try {
+
+			String sql = "SELECT DEPARTMENT_ID,DEPARTMENT_NAME FROM department_tbl";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+
+			while(resultSet.next()) {
+				binaryDTO = new BinaryDTO(resultSet.getInt("DEPARTMENT_ID"),resultSet.getString("DEPARTMENT_NAME"));
+				binaryDTOs.add(binaryDTO);
+			}
+            replyDTO.setData(binaryDTOs);
+		} catch (SQLException e) {
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Server Error Encountered!!!"); 
+		}
+		return replyDTO;
 	}
 	
 }

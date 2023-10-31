@@ -8,14 +8,23 @@
 </head>
 <body>
 <%
-String enrollmentId = request.getParameter("enrollmentId");
-String firstName = request.getParameter("firstName");
-String lastName = request.getParameter("lastName");
+String enrollmentId = request.getParameter("enrollmentNumber");
+String firstName = request.getParameter("name");
+String email = request.getParameter("email");
+String department = request.getParameter("department");
+String courses = request.getParameter("courses");
+String semester = request.getParameter("semester");
+String collegeRollNo = request.getParameter("rollNumber");
 String password = request.getParameter("password");
 SignupDTO signupDTO = new SignupDTO();
 signupDTO.setFirstName(firstName);
-signupDTO.setLastName(lastName);
 signupDTO.setPassword(password);
+signupDTO.setEmail_ID(email);
+signupDTO.setDepartmentId(Integer.parseInt(department));
+signupDTO.setCourseId(Integer.parseInt(courses));
+signupDTO.setSemester(Integer.parseInt(semester));
+signupDTO.setEnrollment_No(enrollmentId);
+signupDTO.setCollege_Rollno(collegeRollNo);
 ReplyDTO replyDTO = Signup.registration(signupDTO);
 if(replyDTO.isErrFlag()){
 	%><h1><%=replyDTO.getErrMsg()%></h1>

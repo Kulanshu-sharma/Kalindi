@@ -11,8 +11,10 @@ public class SignupDTO {
 	private String enrollment_No;
 	private String email_ID;
 	private String year;
-	private String semester;
+	private int semester;
 	private String DOB;
+	private int courseId;
+	private int departmentId;
 	
 	
 	
@@ -70,17 +72,29 @@ public class SignupDTO {
 	public void setYear(String year) {
 		this.year = year;
 	}
-	public String getSemester() {
-		return semester;
-	}
-	public void setSemester(String semester) {
-		this.semester = semester;
-	}
 	public String getDOB() {
 		return DOB;
 	}
 	public void setDOB(String dOB) {
 		DOB = dOB;
+	}
+	public int getSemester() {
+		return semester;
+	}
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
+	public int getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+	public int getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
 	}
 	
 	
