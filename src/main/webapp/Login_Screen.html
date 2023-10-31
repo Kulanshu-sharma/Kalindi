@@ -3,66 +3,201 @@
 <head>
     <title>Login Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 300px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-        }
-        .error {
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+
+    }
+
+body {
+         font-family: Arial, sans-serif;
+          background-image: url(campus4.jpg);
+     }
+   
+   
+ .header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(campus4.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+
+nav img {
+    width: 257.9px;
+    height: 73.7px;
+}
+
+
+.split{
+    margin-top: 5%;
+    display: flex;
+    justify-content:space-evenly ;
+}
+
+.container{
+    flex-basis: 47%;
+    background-color: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+h2{
+    text-align: center;
+ }        
+
+
+input[type="text"],input[type="password"]{
+ 	          width: 90%;
+              padding: 15px;
+  		      margin: 5px 0 22px 0;
+ 		      display: inline-block;
+  		      border: none;
+  			  background: white; 
+			  border-radius: 47px;
+
+}
+
+
+button{
+	width: 90%;
+	padding: 10px;
+	margin: 5px 0 5px 0;
+    background-color:mediumslateblue;	
+}
+
+/*FOOTER*/
+
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background-color: azure;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+
+}
+
+.icon fa-brands{
+    margin:0 30px;
+    cursor: pointer;
+    padding: 18px;
+}
+
+.copyright{
+	
+    background-color: darkgray;
+    text-align: center;
+}
+
+.error {
             color: red;
         }
-    </style>
+    
+	</style>
 </head>
 <body>
+    <section class="header">
+        <nav>
+            <a href="index.html" class="logo"><img src="logo.png"></a>
+
+    <section class="login">
+        <div class="split">
+            <div class="container">
+                <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg">
+            </div>
 <div class="container">
     <h2>Login</h2>
+    <br>
     <form id="loginForm" onsubmit="return validateForm()">
         <select name="userType" id="userType">
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
         </select>
-        <input type="text" name="name" placeholder="Name" required>
+        <br><br>
+        <input type="text"name="name"placeholder="Name" required>
         <input type="password" name="password" id="password" placeholder="Password" required>
-        <input type="submit" value="LOGIN">
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+        <BR>
+        <button type="button" onclick="validateform()">Login</button>
+        <BR><BR>
+
         <p id="errorText" class="error"></p>
-        <div class="button_group">
+            
+
         
-        </div>
-        <div class="fotter">
+        <DIV class="fotter">
 			<P><a href="#"> Forgot Password?</a></P>
+            <br>
 			<P>Don't have an account?<a href="#">SignUp</a></P>
-		</div>
+		</DIV>
     </form>
 
 </div>
+</div>
+</section>
+<!--FOOTER-->
+
+<section class="footer">
+    <h4>About Us</h4>
+    <div class="icon">
+        <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
+        <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
+        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+        <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
+        <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+    </div>
+    <p>Made with &hearts; by Tech Elites.</p>
+    
+</section>
+
+<!--COPYRIGHT-->
+
+<div class="copyright">
+    <p>&copy; 2023 Kalindi College All rights reserved.</p>
+</div>
+
 
 <script>
     function validateForm() {
-        // You can add authentication logic here.
-        // For this example, we're just showing an error message.
         var userType = document.getElementById("userType").value;
         var name = document.getElementById("name").value;
         var password = document.getElementById("password").value;
-
+        var confirmPassword =document.getElementById("confirm_password").value;
         if (userType === "student" && name === "student" && password === "studentpass") {
-            // Student authentication
+
             return true;
         } else if (userType === "teacher" && name === "teacher" && password === "teacherpass") {
-            // Teacher authentication
             return true;
         } else {
             document.getElementById("errorText").textContent = "Invalid credentials.";
             return false;
         }
+        if (password !== confirmPassword) {
+                document.getElementById("message").innerHTML = "Passwords do not match!";
+                return false;
+            } else {
+                document.getElementById("message").innerHTML = "Passwords match!";
+                return true;
     }
 </script>
 </body>
