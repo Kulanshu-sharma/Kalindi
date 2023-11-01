@@ -25,6 +25,8 @@ public class StudentDashboardBB {
 	public static int totalBeds;
     public static int vacantBeds;
     public static int emergencyBeds;
+    public static String enrollmentNo;
+    public static String collegeRollNo;
 	
 	@SuppressWarnings("unchecked")
 	public static void init(HttpServletRequest request) {
@@ -32,8 +34,8 @@ public class StudentDashboardBB {
 		String userName = "";
 		String password = "";
 		String alreadyLoggegInForHomepage = "N";
-		if(request.getParameter("username")!=null) {
-		  userName = request.getParameter("username");
+		if(request.getParameter("name")!=null) {
+		  userName = request.getParameter("name");
 		  password = request.getParameter("password");
 		}
 		else {
@@ -64,8 +66,10 @@ public class StudentDashboardBB {
 			course = userProfileDTO.getCourseName();
 			department = userProfileDTO.getDepartmentName();
 	    	semester = userProfileDTO.getSemester();
+	    	enrollmentNo = userProfileDTO.getEnrollmentNo();
+	    	collegeRollNo = userProfileDTO.getCollegeRollNo();
 			membershipExpiry="22/11/2026";
-			headerText= "This is your profile page. You can book your appointment with any doctor with your choice and you can also cancel your appointment.";
+			headerText= "This is your profile page. You can look for your today's timetable schedule. Feel free to write a feedback regarding your experience of using this application";
 		    backToLoginPage = "goToLoginPage()";
 		    
 		    //Putting login credential on session...

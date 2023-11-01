@@ -9,7 +9,10 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.jdbc.Blob;
+
 import dtos.BinaryDTO;
+import dtos.Constants;
 import dtos.ParamDTO;
 import dtos.ReplyDTO;
 import dtos.SignupDTO;
@@ -33,25 +36,28 @@ public class DBOperations {
 		SignupDTO signupDTO = (SignupDTO) paramDTO.getData();
 		Connection con = DBConnection.getConnection();
 		try {
-			PreparedStatement stmt= con.prepareStatement("insert into STUDENT values(?,?,?,?,?,?,?)");
+			PreparedStatement stmt= con.prepareStatement("insert into STUDENT values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			stmt.setInt(1,1001);
 			stmt.setString(2,signupDTO.getFirstName());
 			stmt.setString(3,signupDTO.getCollege_Rollno());
 			stmt.setString(4,signupDTO.getEnrollment_No());
 			stmt.setString(5,signupDTO.getEmail_ID());
-			stmt.setString(2,signupDTO.getFirstName());
 			stmt.setInt(6,signupDTO.getDepartmentId());
 			stmt.setInt(7,signupDTO.getCourseId());
 			stmt.setInt(8,signupDTO.getSemester());
 			stmt.setString(9,signupDTO.getPassword());
+			stmt.setDate(10,null);
+			stmt.setInt(11,2021);
+			stmt.setDate(12,null);
+			stmt.setBlob(13,(Blob)null);
 			stmt.executeUpdate();
 			replyDTO.setErrFlag(false);
-			replyDTO.setMsg("Student with Student ID "+signupDTO.getStudentId()+" registered Successfully!!!");
+			replyDTO.setMsg("Student with Student ID "+signupDTO.getEnrollment_No()+" registered Successfully!!!");
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
 			replyDTO.setErrFlag(true);
-			replyDTO.setErrMsg("Database Connection error!!!");
+			replyDTO.setErrMsg("Student with Enrollment ID already exist!!!");
 		}
 		return replyDTO;
 		
@@ -68,20 +74,21 @@ public class DBOperations {
 		try {
 			connection = DBConnection.getConnection();
 			int day = LocalDate.now(ZoneId.of("Asia/Kolkata")).getDayOfWeek().getValue();
-			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.SLOT_NAME AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
-			        + "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
-			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID"
-			        + "AND t.DAY_ID = ? AND t.COLLEGE_ID = ? AND t.DEPARTMENT_ID = ? AND t.COURSE_ID = ? AND t.SEMESTER_ID = ?";
+			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
+					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
+			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
+			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
+			        + "t.COURSE_ID="+timetableDTO.getCourseId()+" AND t.SEMESTER_ID="+timetableDTO.getSemesterId();
 			if(timetableDTO.getGroupId()!=0) {
 				query = query + " AND t.GROUP_ID = "+timetableDTO.getGroupId();
 			}
 						
 			stmt = connection.prepareStatement(query);
-			stmt.setInt(1,day);
-			stmt.setInt(2,101);
-			stmt.setInt(3,timetableDTO.getDepartmentId());
-			stmt.setInt(4,timetableDTO.getCourseId());
-			stmt.setInt(5,timetableDTO.getSemesterId());
+			//stmt.setInt(1,day);
+			//stmt.setInt(1,33);
+			//stmt.setInt(2,timetableDTO.getDepartmentId());
+			//stmt.setInt(3,timetableDTO.getCourseId());
+			//stmt.setInt(4,timetableDTO.getSemesterId());
 			resultSet = stmt.executeQuery(query);
 
 			while (resultSet.next()) {
@@ -90,6 +97,10 @@ public class DBOperations {
 		        result.setTeacherName(resultSet.getString("TEACHER"));
 		        result.setSlotName(resultSet.getString("SLOT"));
 		        result.setLabOrTut(resultSet.getInt("LAB"));
+		        if(result.getLabOrTut()==0)
+		        	result.setLabOrTutString("Tutorial");
+		        else
+		        	result.setLabOrTutString("Lab");
 		        result.setLocation(resultSet.getString("LOCATION"));
 		        result.setMode(resultSet.getString("MODE"));
 		        resultList.add(result);
@@ -98,6 +109,7 @@ public class DBOperations {
 			replyDTO.setErrFlag(true);
 			replyDTO.setData(resultList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			replyDTO.setErrFlag(true);
 			replyDTO.setErrMsg("Internal Server Error!!!");
 		}
@@ -116,10 +128,10 @@ public class DBOperations {
 
 	public static ReplyDTO login(ParamDTO paramDTO) {
 		ReplyDTO replyDTO = new ReplyDTO();
-        String username=(String)paramDTO.getParams().get("userID");
+        String username=(String)paramDTO.getParams().get(Constants.USER_ID);
         String password=(String)paramDTO.getParams().get("password");
         try {
-            String sql = "SELECT STUDENT_NAME,EMAIL_ID,COURSE_ID,SEMESTER,DEPARTMENT_ID FROM student WHERE ENROLLMENT_NO = ? AND PASSWORD = ?";
+            String sql = "SELECT STUDENT_NAME,EMAIL_ID,COURSE_ID,SEMESTER,DEPARTMENT_ID,COLLEGE_ROLLNO FROM student WHERE ENROLLMENT_NO = ? AND PASSWORD = ?";
             Connection con = DBConnection.getConnection();
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, username);
@@ -135,6 +147,8 @@ public class DBOperations {
             	studentProfileDTO.setSemester(resultSet.getInt("SEMESTER"));
             	studentProfileDTO.setDepartmentId(resultSet.getInt("DEPARTMENT_ID"));
             	studentProfileDTO.setDepartmentName(getDepartmentNameFromDepartmentId(resultSet.getInt("DEPARTMENT_ID")));
+            	studentProfileDTO.setEnrollmentNo(username);
+            	studentProfileDTO.setCollegeRollNo(resultSet.getInt("COLLEGE_ROLLNO")+"");
             	replyDTO.setData(studentProfileDTO);
             } else {
             	replyDTO.setErrFlag(true);

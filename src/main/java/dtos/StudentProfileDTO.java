@@ -12,6 +12,7 @@ public class StudentProfileDTO {
 	private int semester;
 	private int courseId;
 	private int departmentId;
+	private String collegeRollNo;
 	
 	
 	public String getEnrollmentNo() {
@@ -73,6 +74,12 @@ public class StudentProfileDTO {
 	}
 	public void setDepartmentId(int departmentId) {
 		this.departmentId = departmentId;
+	}
+	public String getCollegeRollNo() {
+		return collegeRollNo;
+	}
+	public void setCollegeRollNo(String collegeRollNo) {
+		this.collegeRollNo = collegeRollNo;
 	}
 	
 	

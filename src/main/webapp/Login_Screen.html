@@ -128,17 +128,17 @@ button{
 <div class="container">
     <h2>Login</h2>
     <br>
-    <form id="loginForm" onsubmit="return validateForm()">
+    <form id="loginForm" action="studentDashboard.jsp" method="post" onsubmit="return validateForm()">
         <select name="userType" id="userType">
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
+            <option value="1">Student</option>
+            <option value="2">Teacher</option>
         </select>
         <br><br>
-        <input type="text"name="name"placeholder="Name" required>
-        <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="text" name="name" placeholder="Enter Name..." required>
+        <input type="password" name="password" id="password" placeholder="Enter Password..." required>
         <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
         <BR>
-        <button type="button" onclick="validateform()">Login</button>
+        <button type="submit" onclick="validateform()">Login</button>
         <BR><BR>
 
         <p id="errorText" class="error"></p>
@@ -198,7 +198,7 @@ button{
             } else {
                 document.getElementById("message").innerHTML = "Passwords match!";
                 return true;
-    }
+    }}
 </script>
 </body>
 </html>

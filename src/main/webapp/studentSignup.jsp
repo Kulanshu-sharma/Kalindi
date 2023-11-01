@@ -27,10 +27,10 @@ signupDTO.setEnrollment_No(enrollmentId);
 signupDTO.setCollege_Rollno(collegeRollNo);
 ReplyDTO replyDTO = Signup.registration(signupDTO);
 if(replyDTO.isErrFlag()){
-	%><h1><%=replyDTO.getErrMsg()%></h1>
+	%><h1 style="color:red;text-align:center;"><%=replyDTO.getErrMsg()%></h1>
 <%}
 else{
-	%><h1><%=replyDTO.getMsg()%></h1>
+	%><h1 style="color:green;text-align:center;"><%=replyDTO.getMsg()%></h1>
 <%}%>
 </body>
 </html>

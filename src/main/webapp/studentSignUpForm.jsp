@@ -114,28 +114,28 @@ button:hover {
 			 <h1 style="color: cadetblue;font-family: fantasy;"> Student Registration</h1>
         <form id="signup-form" action="studentSignup.jsp" method="post">
             <label class="tags" for="name">Name</label>
-            <input type="text" id="name" placeholder="Please enter your name..." required><br>
+            <input type="text" id="name" name="name" placeholder="Please enter your name..." required><br>
             
             <label class="tags" for="email">Email:</label>
-            <input type="email" id="email" placeholder="Please enter your email Id..." required><br>
+            <input type="email" id="email" name="email" placeholder="Please enter your email Id..." required><br>
             
             <label class="tags" for="enrollmentNumber">Enrollment Number:</label>
             <input type="text" id="enrollmentNumber" name="enrollmentNumber" placeholder="Please enter your Enrollment Number..." required><br>
             
             <label class="tags" for="rollNumber">College Roll Number:</label>
-            <input type="text" id="rollNumber" placeholder="Please enter your College Roll no..." required><br>
+            <input type="text" id="rollNumber" name="rollNumber" placeholder="Please enter your College Roll no..." required><br>
             
             <label class="tags" for="department">Select Department:</label>
             <select id="department" name="department">
             <%for(int i=0;i<departmentList.size();i++){ %>
-              <option value=<%=departmentList.get(i).getKey()%>>departmentList.get(i).getValue()</option>
+              <option value=<%=departmentList.get(i).getKey()%>><%=departmentList.get(i).getValue()%></option>
               <%} %>
             </select><br>
 
              <label class="tags" for="courses">Select a course:</label>
              <select id="courses" name="courses">
              <%for(int i=0;i<courseList.size();i++){ %>
-              <option value=<%=courseList.get(i).getKey()%>>courseList.get(i).getValue()</option>
+              <option value=<%=courseList.get(i).getKey()%>><%=courseList.get(i).getValue()%></option>
               <%} %>
             </select><br>
             
@@ -158,7 +158,7 @@ button:hover {
             <input type="file" id="photo" name="photo"><br>
 
             <label class="tags" for="password">Password:</label>
-            <input type="password" id="password" placeholder="Please enter password..." required><br>
+            <input type="password" id="password" name="password" placeholder="Please enter password..." required><br>
 
             <label class="tags" for="repassword">Re-enter Password:</label>
             <input type="password" placeholder="Repeat Password" id="psw_repeat" name="psw-repeat" maxLength="20" onkeyup="match_confirm_password()" required>
