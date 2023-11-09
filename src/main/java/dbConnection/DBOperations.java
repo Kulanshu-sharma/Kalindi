@@ -106,7 +106,7 @@ public class DBOperations {
 		        resultList.add(result);
 			}
             
-			replyDTO.setErrFlag(true);
+			replyDTO.setErrFlag(false);
 			replyDTO.setData(resultList);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,7 +131,7 @@ public class DBOperations {
         String username=(String)paramDTO.getParams().get(Constants.USER_ID);
         String password=(String)paramDTO.getParams().get("password");
         try {
-            String sql = "SELECT STUDENT_NAME,EMAIL_ID,COURSE_ID,SEMESTER,DEPARTMENT_ID,COLLEGE_ROLLNO FROM student WHERE ENROLLMENT_NO = ? AND PASSWORD = ?";
+            String sql = "SELECT STUDENT_NAME,EMAIL_ID,COURSE_ID,SEMESTER,DEPARTMENT_ID,COLLEGE_ROLLNO FROM student WHERE COLLEGE_ROLLNO = ? AND PASSWORD = ?";
             Connection con = DBConnection.getConnection();
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, username);
