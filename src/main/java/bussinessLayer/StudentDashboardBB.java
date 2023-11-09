@@ -16,6 +16,7 @@ public class StudentDashboardBB {
 	public static String course;
 	public static String department;
 	public static int semester;
+	public static String semesterStr;
 	public static String headerText;
 	public static String backToLoginPage;
 	public static String loginSuccessfull;
@@ -66,6 +67,14 @@ public class StudentDashboardBB {
 			course = userProfileDTO.getCourseName();
 			department = userProfileDTO.getDepartmentName();
 	    	semester = userProfileDTO.getSemester();
+	    	if(semester==1)
+	    		semesterStr = "1st";
+	    	else if(semester==2)
+	    		semesterStr = "2nd";
+	    	else if(semester==3)
+	    		semesterStr = "3rd";
+	    	else
+	    		semesterStr = semester+"th";
 	    	enrollmentNo = userProfileDTO.getEnrollmentNo();
 	    	collegeRollNo = userProfileDTO.getCollegeRollNo();
 			membershipExpiry="22/11/2026";

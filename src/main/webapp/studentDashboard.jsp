@@ -18,11 +18,11 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <h1 style="color:black;">Tech Elites</h1>
+        <h1 style="color:black;"><img style="width:40%;" alt="" src="logo.png"></h1>
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
-            <button style="padding-right: 1rem !important;" class="nav-link pr-0" onclick="logout();" role="button" aria-haspopup="true">
+            <button style="padding-right: 1rem !important;border: none;background-color: transparent;" class="nav-link pr-0" onclick="logout();" role="button" aria-haspopup="true">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <img alt="Image placeholder" src="profile.png">
@@ -67,7 +67,7 @@
             </div>
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-sm btn-default float-right">Feedback</a>
+                <a href="#" style="display:none;" class="btn btn-sm btn-default float-right">Feedback</a>
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
@@ -75,15 +75,15 @@
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading"><%=StudentDashboardBB.enrollmentNo%></span>
+                      <span class="heading" style="font-size: 0.8rem;"><%=StudentDashboardBB.enrollmentNo%></span>
                       <span class="description">Enrollment Id</span>
                     </div>
                     <div>
-                      <span class="heading"><%=StudentDashboardBB.semester%></span>
+                      <span class="heading" style="font-size: 0.8rem;text-transform: lowercase;"><%=StudentDashboardBB.semesterStr%></span>
                       <span class="description">Semester</span>
                     </div>
                     <div>
-                      <span class="heading"><%=StudentDashboardBB.collegeRollNo%></span>
+                      <span class="heading" style="font-size: 0.8rem;"><%=StudentDashboardBB.collegeRollNo%></span>
                       <span class="description">College Id</span>
                     </div>
                   </div>
