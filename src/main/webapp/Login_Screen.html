@@ -13,14 +13,14 @@
 
 body {
          font-family: Arial, sans-serif;
-          background-image: url(campus4.jpg);
+          background-color:beige;
      }
    
    
  .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(campus4.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7));
     background-size: cover;
     background-position: center;
     position: relative;
@@ -42,7 +42,7 @@ nav img {
 
 .container{
     flex-basis: 47%;
-    background-color: #fff3f3;
+    background-color:floralwhite;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
@@ -59,7 +59,21 @@ nav img {
 
 h2{
     text-align: center;
+    
  }        
+ 
+select {
+	width: 90%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background:cornsilk;
+    border-radius: 47px;
+	
+	
+}
+ 
 
 
 input[type="text"],input[type="password"]{
@@ -68,8 +82,10 @@ input[type="text"],input[type="password"]{
   		      margin: 5px 0 22px 0;
  		      display: inline-block;
   		      border: none;
-  			  background: white; 
-			  border-radius: 47px;
+  			  background-color:cornsilk;
+  			  color: white;
+  			  border-radius: 47px;
+  			  
 
 }
 
@@ -78,10 +94,12 @@ button{
 	width: 90%;
 	padding: 10px;
 	margin: 5px 0 5px 0;
-    background-color:mediumslateblue;	
+    background-color:darkcyan;	
+    border-radius: 47px;
+
 }
 
-/*FOOTER*/
+/FOOTER/
 
 .footer{
     width: 100%;
@@ -119,6 +137,7 @@ button{
     <section class="header">
         <nav>
             <a href="index.html" class="logo"><img src="logo.png"></a>
+            
 
     <section class="login">
         <div class="split">
@@ -131,12 +150,12 @@ button{
     <form id="loginForm" action="studentDashboard.jsp" method="post" onsubmit="return validateForm()">
         <select name="userType" id="userType">
             <option value="1">Student</option>
-            <option value="2">Teacher</option>
+            <option value="2">Faculty</option>
         </select>
         <br><br>
-        <input type="text" name="name" placeholder="Enter Name..." required>
-        <input type="password" name="password" id="password" placeholder="Enter Password..." required>
-        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+        <input type="text"name="name"placeholder="Enrollment Number" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+
         <BR>
         <button type="submit" onclick="validateform()">Login</button>
         <BR><BR>
@@ -146,9 +165,9 @@ button{
 
         
         <DIV class="fotter">
-			<P><a href="#"> Forgot Password?</a></P>
+			<!--<P><a href="#"> Forgot Password?</a></P>-->
             <br>
-			<P>Don't have an account?<a href="studentSignUpForm.jsp">SignUp</a></P>
+			<P>Don't have an account? <a href="studentSignUpForm.jsp">  Register </a></P>
 		</DIV>
     </form>
 
@@ -182,23 +201,17 @@ button{
         var userType = document.getElementById("userType").value;
         var name = document.getElementById("name").value;
         var password = document.getElementById("password").value;
-        var confirmPassword =document.getElementById("confirm_password").value;
         if (userType === "student" && name === "student" && password === "studentpass") {
 
             return true;
-        } else if (userType === "teacher" && name === "teacher" && password === "teacherpass") {
+        } else if (userType === "Faculty" && name === "Faculty" && password === "Facultypass") {
             return true;
         } else {
             document.getElementById("errorText").textContent = "Invalid credentials.";
             return false;
         }
-        if (password !== confirmPassword) {
-                document.getElementById("message").innerHTML = "Passwords do not match!";
-                return false;
-            } else {
-                document.getElementById("message").innerHTML = "Passwords match!";
-                return true;
-    }}
+   
+    }
 </script>
 </body>
 </html>
