@@ -105,7 +105,7 @@
                 <hr class="my-4">
                 <p><%=StudentDashboardBB.studentName%> you are Bonafied Student of Kalindi College, Delhi University. We hope that you will have a wonderful experience here.</p>
                 <div class="col-4 text-right" style="left:30%">
-                  <button onclick="goToBookAppointmentPage()" class="btn btn-sm btn-primary">Submit Opinion</button>
+                  <button onclick="openChoiceScreen()" class="btn btn-sm btn-primary">Select Elective Subjects</button>
                 </div>
               </div>
             </div>
@@ -116,10 +116,10 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">My Today's Timetable</h3>
+                  <h3 class="mb-0">My Today's Schedule</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <button onclick="goToBookAppointmentPage()" class="btn btn-sm btn-primary">Submit Opinion</button>
+                  <button onclick="openChoiceScreen1()" class="btn btn-sm btn-primary">Mark Your Opinion</button>
                 </div>
               </div>
             </div>

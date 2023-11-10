@@ -20,6 +20,7 @@ import dtos.ParamDTO;
 import dtos.ReplyDTO;
 import dtos.SignupDTO;
 import dtos.StudentProfileDTO;
+import dtos.TertiaryDTO;
 import dtos.TimetableDTO;
 
 public class DBOperations {
@@ -284,6 +285,29 @@ public class DBOperations {
 			dataMap.put(2,studentNotices);
 			dataMap.put(3,staffNotices);
             replyDTO.setData(dataMap);
+		} catch (SQLException e) {
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Server Error Encountered!!!"); 
+		}
+		return replyDTO;
+	}
+	
+	public static ReplyDTO listOfElectives() {
+		ReplyDTO replyDTO = new ReplyDTO();
+		List<TertiaryDTO> tertiaryDTOs = new ArrayList<TertiaryDTO>();
+		TertiaryDTO tertiaryDTO = null;
+		try {
+
+			String sql = "select SUBJECT_ID,SUBJECT_NAME,SUBJECT_TYPE from subject_tbl where SUBJECT_TYPE IN (1,2,3,4,5,6)";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+
+			while(resultSet.next()) {
+				tertiaryDTO = new TertiaryDTO(resultSet.getInt("SUBJECT_ID"),resultSet.getString("SUBJECT_NAME"),resultSet.getInt("SUBJECT_TYPE"));
+				tertiaryDTOs.add(tertiaryDTO);
+			}
+            replyDTO.setData(tertiaryDTOs);
 		} catch (SQLException e) {
 			replyDTO.setErrFlag(true);
 			replyDTO.setErrMsg("Server Error Encountered!!!"); 

@@ -21,3 +21,7 @@ function logout() {
 function goToLoginPage(){
 	        window.location.href="Login_Screen.html";
 }
+
+function openChoiceScreen(){
+	window.location.href="fillSubjectChoices.jsp";
+}
