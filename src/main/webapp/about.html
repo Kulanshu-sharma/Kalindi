@@ -7,28 +7,77 @@
 <link rel="icon" href="https://www.kalindicollege.in/wp-content/themes/kalindi/assets/images/kc-logo.png"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+<style>
+	.header{
+		background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,8,8,0.7)), url(header.jpg);
+    	background-size: cover;
+    	width: 100%;
+    	height: 20%;
+	}
+	.logo img {
+	height: 6rem;
+	width: 90px;
+	float: left;
+	margin-left: -60px;
+	}
+
+	.logoTitle {
+	text-align: justify;
+	color: #fff;
+	margin: auto;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 28px;
+	padding: 2px;
+	}
+
+	.logo h3{
+	text-align: left;
+	font-size: 12px;
+	}
+</style>
 </head>
+
 <body>
-	<section class="sub-header">
+	<section class="header">
         <nav>
-            <a href="index.html" class="logo"><img src="logo.png"></a>
+            <table class="logo">
+				<tr>
+					<td class="logo-img"><img src="kalindi-logo.png"></td>
+					<td class="logo-cont">
+						<h1 class="logoTitle">Kalindi College</h1>
+		            	<h3 class="logoTitle">UNIVERSITY OF DELHI</h3>
+		            	<h3 class="logoTitle">ACCREDITED WITH GRADE 'A+' BY NAAC</h3>
+					</td>
+				</tr>
+			</table>
+			
             <div class="nav-links" id="navLinks">
                 <i class="fas fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="frontpage.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="course.html">COURSE</a></li>
-                    <li><a href="admission.html">ADMISSION</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                    <li><a href="principal.html">INFO</a></li>
-                    <li><a href="login.html">LOGIN</a></li>
-                    <li><a href="studentsignup.html">SIGNUP</a></li>
+                <ul><b>
+                    <li><a href="frontpage.html"><b>HOME</b></a></li>
+                    <li><a href="about.html"><b>ABOUT</b></a></li>
+                    <li><a href="course.html"><b>COURSE</b></a></li>
+                    <li><a href="admission.html"><b>ADMISSION</b></a></li>
+                    <li><a href="contact.html"><b>CONTACT</b></a></li>
+                    <li><a href="principal.html"><b>INFO</b></a></li>
+                     <li><div class="login">
+						  <a href="#" class="dropbtn"><b>LOGIN</b></a>
+						  <div class="login-content">
+						    <div class="option1"><a href="Login_Screen.html"><b>Student</b></a><br><hr></div>
+						    <div class="option2"><a href="#"><b>Faculty</b></a><br></div>
+						    <!--<div class="option3"><a href="#"><b>Alumni</b></a></div>-->
+						  </div>
+						</div>
+					 </li>		
+                    
+                    <li><a href="Gallery.html"><b>GALLERY</b></a></li></b>
                 </ul>
             </div>
             <i class="fas fa-bars" onclick="showMenu()"></i>
         </nav>
 
-        <h1>About Us</h1>
+        <h1 style="margin-top: 100px; color:#fff; font-size: 40px;">About Us</h1>
 
     </section>
 
@@ -45,9 +94,20 @@
                     <br>Located in its own beautiful campus of 8.25 Acre in East Patel Nagar the College, offers courses under Non-Collegiate and School of Open Learning Centre, along with its regular courses and contemporary Add-on Courses such as Video Production Foreign Languages (French and Chinese), Tourism. With a team of dedicated and efficient teachers and strong and co-operative administrative staff, the college provides its students an environment conducive to all-round development.
                     <br>Kalindis motto conveys three virtues of human life: knowledge, modesty and sense of duty. During all these years, the college has not only made substantial progress in the field of education, but also immensely contributed in the Nation building. Many of its students and alumni have reached to the great heights and achieved National and International recognition. The college strives to provide an intellectual environment for the emancipation of the intellect and spirit that stimulates both critical thinking and imagination.</p>
                 <a href="#" class="btn exp-btn">EXPLORE NOW</a>
+                            <a target="_blank" href="https://www.facebook.com/profile.php?id=100072719236570" class="fac">
+								<i class="fa-brands fa-facebook" style="color: #3d79e1;"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/kalindicollegeofficialpage/" class="twi">
+								<i class="fa-brands fa-instagram" style="color: #df1174;"></i></a>
+							<a target="_blank" href="https://twitter.com/CollegeKalindi" class="twi">
+								<i class="fa-brands fa-twitter" style="color: #4081f2;"></i></a>
+                            <a target="_blank" href="http://www.youtube.com/embed/videoseries?list=PLiBLXNbFQhXvvckd6Xyio_KaFYvepeALF&amp;controls=0" class="tub">
+								<i class="fa-brands fa-youtube" style="color: #ef343d;"></i></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/kalindi-college-5b071a220/" class="lin">
+								<i class="fa-brands fa-linkedin" style="color: #2365d7;"></i></a>
+                        
             </div>
             <div class="about-col">
-                <img src="about2.jpg">
+                <img src="about-img.jpg">
             </div>
         </div>
 
@@ -58,22 +118,22 @@
     <!--FOOTER-->
 
 <section class="footer">
-    <h4>About Us</h4>
+    <h4>About Tech Elites</h4>
     <div class="icon">
         <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
         <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
-        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+        <a href="https://www.instagram.com/tech__elites/"><i class="fa-brands fa-instagram" style="color: #df1174;"></i></a>
         <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
         <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
     </div>
-    <p>Made with &hearts; by Tech Elites.</p>
+    <p style="text-align: center;">Made with &hearts; by Tech Elites.</p>
     
 </section>
 
 <!--COPYRIGHT-->
 
 <div class="copyright">
-    <p>&copy; 2023 Kalindi College All rights reserved.</p>
+    <p style="text-align: center;"> &copy; 2023 Kalindi College All rights reserved.</p>
 </div>
 
 <!-- JAVASCRIPT-->
