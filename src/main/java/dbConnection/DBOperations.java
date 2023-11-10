@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.mysql.cj.jdbc.Blob;
 
 import dtos.BinaryDTO;
 import dtos.Constants;
+import dtos.NoticeDTO;
 import dtos.ParamDTO;
 import dtos.ReplyDTO;
 import dtos.SignupDTO;
@@ -242,6 +245,45 @@ public class DBOperations {
 				binaryDTOs.add(binaryDTO);
 			}
             replyDTO.setData(binaryDTOs);
+		} catch (SQLException e) {
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Server Error Encountered!!!"); 
+		}
+		return replyDTO;
+	}
+	
+	public static ReplyDTO listOfNotices() {
+		ReplyDTO replyDTO = new ReplyDTO();
+		Map<Integer,List<NoticeDTO>> dataMap = new HashMap<Integer,List<NoticeDTO>>();
+		List<NoticeDTO> generalNotices = new ArrayList<NoticeDTO>();
+		List<NoticeDTO> studentNotices = new ArrayList<NoticeDTO>();
+		List<NoticeDTO> staffNotices = new ArrayList<NoticeDTO>();
+		NoticeDTO generalDTO = null;
+		NoticeDTO studentDTO = null;
+		NoticeDTO staffDTO = null;
+		try {
+
+			String sql = "SELECT NOTICE_ID,DATE,CONTENT,LINK,NOTICE_TYPE FROM NOTICE_TBL ORDER BY DATE DESC LIMIT 5 OFFSET 0";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+
+			while(resultSet.next()) {
+				if(resultSet.getInt("NOTICE_TYPE")==1) {
+					generalDTO = new NoticeDTO(resultSet.getString("CONTENT"),resultSet.getString("LINK"),resultSet.getDate("DATE")+"");
+					generalNotices.add(generalDTO);
+				}else if(resultSet.getInt("NOTICE_TYPE")==2) {
+					studentDTO = new NoticeDTO(resultSet.getString("CONTENT"),resultSet.getString("LINK"),resultSet.getDate("DATE")+"");
+					studentNotices.add(studentDTO);
+				}else {
+					staffDTO = new NoticeDTO(resultSet.getString("CONTENT"),resultSet.getString("LINK"),resultSet.getDate("DATE")+"");
+					staffNotices.add(staffDTO);
+				}
+			}
+			dataMap.put(1,generalNotices);
+			dataMap.put(2,studentNotices);
+			dataMap.put(3,staffNotices);
+            replyDTO.setData(dataMap);
 		} catch (SQLException e) {
 			replyDTO.setErrFlag(true);
 			replyDTO.setErrMsg("Server Error Encountered!!!"); 
