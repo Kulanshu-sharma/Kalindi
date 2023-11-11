@@ -315,4 +315,46 @@ public class DBOperations {
 		return replyDTO;
 	}
 	
+	public void getTimetableInfo(int COLLEGE_ROLLNO) {
+		try {
+
+			String query = "SELECT SEC, VAC, GE,AECC FROM timetable WHERE COLLEGE_ROLLNO = ?";
+			try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+				preparedStatement.setInt(1,COLLEGE_ROLLNO);
+				try (ResultSet resultSet = preparedStatement.executeQuery()) {
+					if (resultSet.next()) {
+						String sec = resultSet.getString("SEC");
+						String vac = resultSet.getString("VAC");
+						String ge = resultSet.getString("GE");
+						String aecc = resultSet.getString("AECC");
+
+						System.out.println("COLLEGE_ROLLNO: " + COLLEGE_ROLLNO + ", SEC: " + sec + ", VAC: " + vac + ", GE: " + ge + ", AECC: " + aecc);
+					} else {
+						System.out.println("No timetable information found for COLLEGE_ROLLNO: " + COLLEGE_ROLLNO);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void closeConnection() {
+		try {
+			if (connection != null && !connection.isClosed()) {
+				connection.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		TimetableDBOperations dbOperations = new TimetableDBOperations();
+		int college_RollNoToQuery = ? ; 
+		dbOperations.getTimetableInfo(college_RollNoToQuery);
+		dbOperations.closeConnection();
+	}
+
+}	
 }
