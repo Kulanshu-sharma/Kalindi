@@ -10,13 +10,15 @@ public class ElectiveSubjectDTO {
 	public String aecStr;
 	public int sec;
 	public String secStr;
+	public int dsc;
+	public String dscStr;
 	public String userId;
 	
 	public ElectiveSubjectDTO() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ElectiveSubjectDTO(String userId,int ge,int vac,int aec, int sec){
+	public ElectiveSubjectDTO(String userId,int ge,int vac,int aec, int sec, int dsc){
 		this.userId = userId;
 		this.ge = ge;
 		this.aec = aec;
@@ -77,6 +79,19 @@ public class ElectiveSubjectDTO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public int getDsc() {
+		return dsc;
+	}
+	public void setDsc(int dsc) {
+		this.dsc = dsc;
+	}
+	public String getDscStr() {
+		return dscStr;
+	}
+	public void setDscStr(String dscStr) {
+		this.dscStr = dscStr;
 	}	
+	
 	
 }

@@ -7,9 +7,12 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.mysql.cj.jdbc.Blob;
 
@@ -79,7 +82,7 @@ public class DBOperations {
 		try {
 			connection = DBConnection.getConnection();
 			int day = LocalDate.now(ZoneId.of("Asia/Kolkata")).getDayOfWeek().getValue();
-			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
+			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,st.SLOT_ID AS SLOT_ID, t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
 					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
 			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
 			        + "AND t.DAY_ID="+3+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
@@ -102,15 +105,16 @@ public class DBOperations {
 		        result.setTeacherName(resultSet.getString("TEACHER"));
 		        result.setSlotName(resultSet.getString("SLOT"));
 		        result.setLabOrTut(resultSet.getInt("LAB"));
-		        if(result.getLabOrTut()==0)
-		        	result.setLabOrTutString("Tutorial");
-		        else
-		        	result.setLabOrTutString("Lab");
+		       
+		      	result.setLabOrTutString("Core");
+		        
 		        result.setLocation(resultSet.getString("LOCATION"));
 		        result.setMode(resultSet.getString("MODE"));
+		        result.setSlotId(resultSet.getInt("SLOT_ID"));
 		        resultList.add(result);
 			}
-            //resultList.addAll(DBOperations.getElectivesTimeTable(22105013));
+            resultList.addAll(DBOperations.getElectivesTimeTable(timetableDTO.getUserId()));
+            resultList.sort(Comparator.comparing(TimetableDTO::getSlotId));
 			replyDTO.setErrFlag(false);
 			replyDTO.setData(resultList);
 		} catch (Exception e) {
@@ -345,33 +349,53 @@ public class DBOperations {
 	}
 	
 	private static  List<TimetableDTO> getElectivesTimeTable(int COLLEGE_ROLLNO) {
-		ReplyDTO replyDTO = new ReplyDTO();
         List<TimetableDTO> resultList = new ArrayList<TimetableDTO>();
         TimetableDTO result = null;
         ResultSet resultSet = null;
         PreparedStatement stmt = null;
         Connection connection = null;
-		List<Integer> listOfSubjectIds = DBOperations.getElectiveSubjectIdsOfStudent(COLLEGE_ROLLNO);
+        Map<String,Integer> listOfSubjectIds = DBOperations.getElectiveSubjectIdsOfStudent(COLLEGE_ROLLNO);
 		try {
 			connection = DBConnection.getConnection();
 			int day = LocalDate.now(ZoneId.of("Asia/Kolkata")).getDayOfWeek().getValue();
-			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
+			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,sb.SUBJECT_ID AS SUBJECT_ID,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT, st.SLOT_ID AS SLOT_ID, t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
 					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
 			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
-			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND + t.SUBJECT_ID IN ("+listOfSubjectIds+")";
+			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.SUBJECT_ID IN (?)";
+			
+			String subjectIdsStr="";
+			if(listOfSubjectIds.get("ge")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("ge");
+			if(listOfSubjectIds.get("vac")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("vac");
+			if(listOfSubjectIds.get("sec")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("sec");
+			if(listOfSubjectIds.get("aec")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("aec");
+			if(listOfSubjectIds.get("dsc")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("dsc");
+			if(listOfSubjectIds.get("activity")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("activity");
+			if(listOfSubjectIds.get("sports")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("sports");
+			
 			stmt = connection.prepareStatement(query);
+			stmt.setString(1,subjectIdsStr);
+			resultSet = stmt.executeQuery();
 			while (resultSet.next()) {
 				result = new TimetableDTO();
 			    result.setSubjectName(resultSet.getString("SUBJECT"));
 		        result.setTeacherName(resultSet.getString("TEACHER"));
 		        result.setSlotName(resultSet.getString("SLOT"));
 		        result.setLabOrTut(resultSet.getInt("LAB"));
-		        if(result.getLabOrTut()==0)
-		        	result.setLabOrTutString("Tutorial");
-		        else
-		        	result.setLabOrTutString("Lab");
+		        int subjectId = resultSet.getInt("SUBJECT_ID");
+		        for(Entry<String,Integer> data : listOfSubjectIds.entrySet()) {
+		        	if(data.getValue()==subjectId)
+		        		result.setLabOrTutString(data.getKey().toUpperCase());
+		        }
 		        result.setLocation(resultSet.getString("LOCATION"));
 		        result.setMode(resultSet.getString("MODE"));
+		        result.setSlotId(resultSet.getInt("SLOT_ID"));
 		        resultList.add(result);
 			}
 		} catch (SQLException e) {
@@ -380,8 +404,8 @@ public class DBOperations {
 		return resultList;
 	}
 	
-	private static List<Integer> getElectiveSubjectIdsOfStudent(int COLLEGE_ROLLNO) {
-		List<Integer> listOfSubjectIds = new ArrayList<Integer>();
+	private static Map<String,Integer> getElectiveSubjectIdsOfStudent(int COLLEGE_ROLLNO) {
+		Map<String,Integer> listOfSubjectIds = new HashMap<String, Integer>();
 		try {
 			Connection connection = DBConnection.getConnection();
 			String query = "SELECT SEC,VAC,GE,AEC,ACTIVITY FROM STUDENT_OTHER_INFO WHERE COLLEGE_ROLLNO = ?";
@@ -395,13 +419,15 @@ public class DBOperations {
 				int aec = resultSet.getInt("AEC");	
 				int activity = resultSet.getInt("ACTIVITY");
 				if(sec!=0)
-				  listOfSubjectIds.add(sec);
+				  listOfSubjectIds.put("sec",sec);
 				if(vac!=0)
-				  listOfSubjectIds.add(vac);
+				  listOfSubjectIds.put("vac",vac);
 				if(ge!=0)
-				  listOfSubjectIds.add(ge);
+				  listOfSubjectIds.put("ge",ge);
+				if(aec!=0)
+				  listOfSubjectIds.put("aec",aec);
 				if(activity!=0)
-				  listOfSubjectIds.add(activity);
+				  listOfSubjectIds.put("activity",activity);
 			} 
 		} catch (SQLException e) {
 			e.printStackTrace();

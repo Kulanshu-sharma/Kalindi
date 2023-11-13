@@ -96,6 +96,7 @@ public class StudentDashboardBB {
 		    timetableDTO.setCourseId(userProfileDTO.getCourseId());
 		    timetableDTO.setDepartmentId(userProfileDTO.getDepartmentId());
 		    timetableDTO.setSemesterId(userProfileDTO.getSemester());
+		    timetableDTO.setUserId(Integer.parseInt(userName));
 		    paramDTO.setData(timetableDTO);
 		    replyDTO = DBOperations.getStudentTimeTable(paramDTO);
 		    timeTableList = (List<TimetableDTO>) replyDTO.getData();

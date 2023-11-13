@@ -134,11 +134,9 @@ nav img {
   			display: inline-block;
   			border: none;
   			background: white;
-  			border-radius: 47px;
         }
-       .tags:after {
-          content:" *";
-          color: red;
+       .tags{
+            color: slategrey;
         }
 </style>
 <body>
@@ -186,7 +184,7 @@ nav img {
   <h2 style="color: black;font-family: fantasy; text-align:center;">Choose Your Elective Subjects</h2><br>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
-  <p class="tags">Select GE Subject</p>
+  <p class="tags">GE Subject(if any)</p>
     <select id="semester" name="ge">
     <option value="0">Select GE Subject ...</option>
     <%for(TertiaryDTO data : FillSubjectChoicesBB.subjectsList){ %>
@@ -195,7 +193,7 @@ nav img {
     </select>
   </div>
   <div class="tab">
-  <p class="tags">Select AEC Subject</p>
+  <p class="tags">AEC Subject(if any)</p>
     <select id="semester" name="aec">
     <option value="0">Select AEC Subject ...</option>
     <%for(TertiaryDTO data : FillSubjectChoicesBB.subjectsList){ %>
@@ -204,7 +202,7 @@ nav img {
     </select>
   </div>
   <div class="tab">
-  <p class="tags">Select VAC Subject</p>
+  <p class="tags">VAC Subject(if any)</p>
     <select id="semester" name="vac">
     <option value="0">Select VAC Subject ...</option>
     <%for(TertiaryDTO data : FillSubjectChoicesBB.subjectsList){ %>
@@ -213,22 +211,33 @@ nav img {
     </select>
   </div>
   <div class="tab">
-  <p class="tags">Select SEC Subject</p>
+  <p class="tags">SEC Subject(if any)</p>
     <select id="semester" name="sec">
     <option value="0">Select SEC Subject...</option>
     <%for(TertiaryDTO data : FillSubjectChoicesBB.subjectsList){ %>
          <option value=<%=data.getKey()%>><%=data.getValue()%></option>
     <%} %>
     </select>
-  </div><br>
+  </div>
+    <div class="tab">
+  <p class="tags">DSC Subject(if any)</p>
+    <select id="semester" name="dsc">
+    <option value="0">Select DSC Subject...</option>
+    <%for(TertiaryDTO data : FillSubjectChoicesBB.subjectsList){ %>
+         <option value=<%=data.getKey()%>><%=data.getValue()%></option>
+    <%} %>
+    </select>
+  </div>
   <div style="overflow:auto;">
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
     </div>
-  </div>
+  </div><br>
+  <p style="color:red"><b>NOTE:</b> Choose only those subjects in which you are registered!!!</p>
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>

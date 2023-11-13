@@ -25,6 +25,7 @@ public class TimetableDTO {
 	private String statusColor;
 	private String mode;
 	private String labOrTutString;
+	private int userId;
 	
 	public int getSlotId() {
 		return slotId;
@@ -163,6 +164,12 @@ public class TimetableDTO {
 	}
 	public void setLabOrTutString(String labOrTutString) {
 		this.labOrTutString = labOrTutString;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	
