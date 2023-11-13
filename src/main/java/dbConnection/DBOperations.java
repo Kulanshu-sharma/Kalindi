@@ -15,6 +15,7 @@ import com.mysql.cj.jdbc.Blob;
 
 import dtos.BinaryDTO;
 import dtos.Constants;
+import dtos.ElectiveSubjectDTO;
 import dtos.NoticeDTO;
 import dtos.ParamDTO;
 import dtos.ReplyDTO;
@@ -109,7 +110,7 @@ public class DBOperations {
 		        result.setMode(resultSet.getString("MODE"));
 		        resultList.add(result);
 			}
-          //  resultList.addAll(DBOperations.getElectivesTimeTable(2210345));
+            //resultList.addAll(DBOperations.getElectivesTimeTable(22105013));
 			replyDTO.setErrFlag(false);
 			replyDTO.setData(resultList);
 		} catch (Exception e) {
@@ -311,6 +312,34 @@ public class DBOperations {
 		} catch (SQLException e) {
 			replyDTO.setErrFlag(true);
 			replyDTO.setErrMsg("Server Error Encountered!!!"); 
+		}
+		return replyDTO;
+	}
+	
+	public static ReplyDTO submitElectiveSubjects(ParamDTO paramDTO) {
+		ReplyDTO replyDTO = new ReplyDTO();
+		ElectiveSubjectDTO electiveSubjectDTO = (ElectiveSubjectDTO) paramDTO.getData();
+		if(electiveSubjectDTO.getUserId()==null) {
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("Kindly Login Again!!!"); 
+			return replyDTO;
+		}
+		try {
+
+			String sql = "INSERT INTO STUDENT_OTHER_INFO VALUES(?,?,?,?,?,0)";
+			Connection con = DBConnection.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1,Integer.parseInt(electiveSubjectDTO.getUserId()));
+			stmt.setInt(2,electiveSubjectDTO.getGe());
+			stmt.setInt(3,electiveSubjectDTO.getAec());
+			stmt.setInt(4,electiveSubjectDTO.getVac());
+			stmt.setInt(5,electiveSubjectDTO.getSec());
+			stmt.executeUpdate();
+			replyDTO.setMsg("Yippiii!!! You are done with the Elective subjects Registration:)");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			replyDTO.setErrFlag(true);
+			replyDTO.setErrMsg("You Have Already Registered for the Electives Subjects!!!"); 
 		}
 		return replyDTO;
 	}

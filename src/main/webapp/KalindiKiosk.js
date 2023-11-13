@@ -23,7 +23,7 @@ function goToLoginPage(){
 }
 
 function openChoiceScreen(){
-	window.location.href="fillSubjectChoices.jsp";
+	window.location.href="fillSubChoices.jsp";
 }
 
 function markOpinion(){
