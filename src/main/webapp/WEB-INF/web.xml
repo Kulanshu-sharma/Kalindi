@@ -9,4 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+   <session-config>
+	<session-timeout>30</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>KalindiServletKiosk</servlet-name>
+    <servlet-class>bussinessLayer.KalindiServletKiosk</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>KalindiServletKiosk</servlet-name>
+    <url-pattern>/bussinessLayer/KalindiServletKiosk/*</url-pattern>
+  </servlet-mapping>
 </web-app>

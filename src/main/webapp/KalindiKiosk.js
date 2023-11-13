@@ -3,18 +3,18 @@
  */
 function logout() {
 	  if(confirm("Are you Sure you want to Logout?")){
-	 // var xhttp = new XMLHttpRequest();
-	  //xhttp.onreadystatechange=function() {
-	    //if (this.readyState == 4 && this.status == 200) {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange=function() {
+	    if (this.readyState == 4 && this.status == 200) {
 	      
-	    //	window.open("doctorSignup.html");
+	    	//window.open("doctorSignup.html");
 	    
             window.close();
             window.location.href="Login_Screen.html";
-	    //}
-	  //};
-	  //xhttp.open("GET", "bussinessLayer/KalindiServletKiosk?rqst=1", false);
-	  //xhttp.send();
+	    }
+	  };
+	  xhttp.open("GET", "bussinessLayer/KalindiServletKiosk?rqst=1", false);
+	  xhttp.send();
       }
 	}
 	
@@ -24,4 +24,8 @@ function goToLoginPage(){
 
 function openChoiceScreen(){
 	window.location.href="fillSubjectChoices.jsp";
+}
+
+function markOpinion(){
+	window.location.href="COMINGSOON.html";
 }

@@ -81,7 +81,7 @@ public class DBOperations {
 			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
 					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
 			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
-			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
+			        + "AND t.DAY_ID="+3+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
 			        + "t.COURSE_ID="+timetableDTO.getCourseId()+" AND t.SEMESTER_ID="+timetableDTO.getSemesterId();
 			if(timetableDTO.getGroupId()!=0) {
 				query = query + " AND t.GROUP_ID = "+timetableDTO.getGroupId();
@@ -109,7 +109,7 @@ public class DBOperations {
 		        result.setMode(resultSet.getString("MODE"));
 		        resultList.add(result);
 			}
-            
+          //  resultList.addAll(DBOperations.getElectivesTimeTable(2210345));
 			replyDTO.setErrFlag(false);
 			replyDTO.setData(resultList);
 		} catch (Exception e) {
@@ -315,46 +315,68 @@ public class DBOperations {
 		return replyDTO;
 	}
 	
-	public void getTimetableInfo(int COLLEGE_ROLLNO) {
+	private static  List<TimetableDTO> getElectivesTimeTable(int COLLEGE_ROLLNO) {
+		ReplyDTO replyDTO = new ReplyDTO();
+        List<TimetableDTO> resultList = new ArrayList<TimetableDTO>();
+        TimetableDTO result = null;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        Connection connection = null;
+		List<Integer> listOfSubjectIds = DBOperations.getElectiveSubjectIdsOfStudent(COLLEGE_ROLLNO);
 		try {
-
-			String query = "SELECT SEC, VAC, GE,AECC FROM timetable WHERE COLLEGE_ROLLNO = ?";
-			try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-				preparedStatement.setInt(1,COLLEGE_ROLLNO);
-				try (ResultSet resultSet = preparedStatement.executeQuery()) {
-					if (resultSet.next()) {
-						String sec = resultSet.getString("SEC");
-						String vac = resultSet.getString("VAC");
-						String ge = resultSet.getString("GE");
-						String aecc = resultSet.getString("AECC");
-
-						System.out.println("COLLEGE_ROLLNO: " + COLLEGE_ROLLNO + ", SEC: " + sec + ", VAC: " + vac + ", GE: " + ge + ", AECC: " + aecc);
-					} else {
-						System.out.println("No timetable information found for COLLEGE_ROLLNO: " + COLLEGE_ROLLNO);
-					}
-				}
+			connection = DBConnection.getConnection();
+			int day = LocalDate.now(ZoneId.of("Asia/Kolkata")).getDayOfWeek().getValue();
+			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
+					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
+			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
+			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND + t.SUBJECT_ID IN ("+listOfSubjectIds+")";
+			stmt = connection.prepareStatement(query);
+			while (resultSet.next()) {
+				result = new TimetableDTO();
+			    result.setSubjectName(resultSet.getString("SUBJECT"));
+		        result.setTeacherName(resultSet.getString("TEACHER"));
+		        result.setSlotName(resultSet.getString("SLOT"));
+		        result.setLabOrTut(resultSet.getInt("LAB"));
+		        if(result.getLabOrTut()==0)
+		        	result.setLabOrTutString("Tutorial");
+		        else
+		        	result.setLabOrTutString("Lab");
+		        result.setLocation(resultSet.getString("LOCATION"));
+		        result.setMode(resultSet.getString("MODE"));
+		        resultList.add(result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return resultList;
 	}
-
-	public void closeConnection() {
+	
+	private static List<Integer> getElectiveSubjectIdsOfStudent(int COLLEGE_ROLLNO) {
+		List<Integer> listOfSubjectIds = new ArrayList<Integer>();
 		try {
-			if (connection != null && !connection.isClosed()) {
-				connection.close();
-			}
+			Connection connection = DBConnection.getConnection();
+			String query = "SELECT SEC,VAC,GE,AEC,ACTIVITY FROM STUDENT_OTHER_INFO WHERE COLLEGE_ROLLNO = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1,COLLEGE_ROLLNO);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				int sec = resultSet.getInt("SEC");
+				int vac = resultSet.getInt("VAC");
+		        int ge = resultSet.getInt("GE");
+				int aec = resultSet.getInt("AEC");	
+				int activity = resultSet.getInt("ACTIVITY");
+				if(sec!=0)
+				  listOfSubjectIds.add(sec);
+				if(vac!=0)
+				  listOfSubjectIds.add(vac);
+				if(ge!=0)
+				  listOfSubjectIds.add(ge);
+				if(activity!=0)
+				  listOfSubjectIds.add(activity);
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return listOfSubjectIds;
 	}
-
-	public static void main(String[] args) {
-		TimetableDBOperations dbOperations = new TimetableDBOperations();
-		int college_RollNoToQuery = ? ; 
-		dbOperations.getTimetableInfo(college_RollNoToQuery);
-		dbOperations.closeConnection();
-	}
-
-}	
 }

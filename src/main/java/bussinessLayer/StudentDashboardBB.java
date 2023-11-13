@@ -42,6 +42,12 @@ public class StudentDashboardBB {
 		else {
 		  userName = (String) request.getSession().getAttribute(Constants.USER_ID);
 		  password = (String) request.getSession().getAttribute(Constants.PASSWORD);
+		  if(userName==null) {
+			  loginSuccessfull = "none";
+			  displayLoginErrorScreen="block";
+			  loginErrorText = "Session is Expired!!! Please Login Again";
+			  return;
+		  }
 		  alreadyLoggegInForHomepage = "Y";
 		}
 		ParamDTO paramDTO = new ParamDTO();

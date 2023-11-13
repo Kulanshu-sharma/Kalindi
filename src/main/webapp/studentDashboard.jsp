@@ -119,7 +119,7 @@
                   <h3 class="mb-0">My Today's Schedule</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <button onclick="openChoiceScreen1()" class="btn btn-sm btn-primary">Mark Your Opinion</button>
+                  <button onclick="markOpinion()" class="btn btn-sm btn-primary">Mark Your Opinion</button>
                 </div>
               </div>
             </div>

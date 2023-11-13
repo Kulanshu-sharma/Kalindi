@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
+    <link rel="comingsoon" href="comingsoon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title> COMING SOON </title>
+    <style>
+         * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+ }
+
+ html, body {
+    height: 100%;
+
+ }
+
+ body{
+    font-size: 1rem;
+    line-height: 1.65em;
+    font-family:'poppins',sans-serif;
+    background:linear-gradient(to right,white 50%,#CD5C5C 50%);
+ }
+ 
+.uc__wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.uc__details {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uc__art {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uc__art img {
+    width: 75%;
+}
+
+.title {
+    display: inline-block;
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    height: px;
+    background-color: #fff;
+    width: 134px;
+}
+
+.intro {
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.uc__description {
+    margin-bottom: 2rem;
+    line-height: 1.77;
+    color: #ccc;
+}
+
+.uc__subscribe {
+    background-color: white;
+    padding: 1.5rem;
+    width: 85%;
+    border-radius: 3px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+}
+
+.uc__subscribe h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.uc__form {
+    position: relative;
+}
+
+.uc__form input {
+    font-family: inherit;
+    outline: none;
+    font-size: 90%;
+    padding: 10px 1rem;
+    border: none;
+    display: block;
+    border-radius: 2px;
+}
+
+.uc__form .email {
+    width: 100%;
+    background-color: #ecf0f1;
+}
+
+.uc__form .submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #CD5C5C;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color .22s ease;
+}
+
+.uc__form .submit:hover {
+    background-color: #8e44ad;
+}
+.copyright{
+    background-color: darkgray;
+    text-align: center;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background-color: azure;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+
+}
+    </style>
+</head>
+<BODY>
+   
+    <div class="uc__wrapper">
+        <div class="uc__details">
+            <h1 class="title">Coming Soon In Version 2.0!</h1>
+            <h3 class="intro">
+                We are working hard to give you a better experience.
+            </h3>
+            <p class="uc__description">
+                This functionality may go live very soon. We promise, it will be worth the wait!
+            </p>
+            <div class="uc__subscribe">
+                <h3>Get Notified When We Go Live</h3>
+                <div class="uc__form">
+                    <form action="#">
+                        <input type="email" class="email" placeholder="Email Address..">
+                        <input type="submit" class="submit" value="Get Notified">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="uc__art">
+            <img src="UNDERCONS.png" alt="">
+        </div>
+    </div>
+    <section class="footer">
+        <h4>About Us</h4>
+        <div class="icon">
+            <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
+            <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
+            <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+            <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
+            <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+        </div>
+        <p>Made with &hearts; by Tech Elites.</p>
+        
+    </section>
+    
+    <!--COPYRIGHT-->
+    
+    <div class="copyright">
+        <p>&copy; 2023 Kalindi College All rights reserved.</p>
+    </div>
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>    
+</body>
+</html>
