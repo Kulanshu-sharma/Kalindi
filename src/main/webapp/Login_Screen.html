@@ -42,13 +42,39 @@ nav img {
 
 .container{
     flex-basis: 47%;
-    background-color:floralwhite;
+    background-color:lightblue;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
     position: relative;
     overflow: hidden;
 }
+
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .login-form {
+            max-width: 400px;
+            width: 100%;
+        }
 
 .container img{
     width: 100%;
@@ -68,7 +94,7 @@ select {
 	margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background:cornsilk;
+    background:blanchedalmond;
     border-radius: 47px;
 	
 	
@@ -82,7 +108,7 @@ input[type="text"],input[type="password"]{
   		      margin: 5px 0 22px 0;
  		      display: inline-block;
   		      border: none;
-  			  background-color:cornsilk;
+  			  background-color: blanchedalmond;
   			  color: black;
   			  border-radius: 47px;
   			  
@@ -128,6 +154,17 @@ button{
 .error {
             color: red;
         }
+        
+        
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                flex: 1;
+            }
+        }
     
 	</style>
 </head>
@@ -140,7 +177,7 @@ button{
     <section class="login">
         <div class="split">
             <div class="container">
-                <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg">
+                <img src="https://media.istockphoto.com/id/1394452639/vector/coputer-internet-cyber-security-background-cyber-crime-vector-illustration-digital-lock.jpg?b=1&s=612x612&w=0&k=20&c=4bFGVSY_FzCBqQsDPOv2In4RWFn9hZgRhdJdwjarJ3o=">
             </div>
 <div class="container">
     <h2>Login</h2>
