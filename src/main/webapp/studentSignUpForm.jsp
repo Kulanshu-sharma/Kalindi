@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="https://www.kalindicollege.in/wp-content/themes/kalindi/assets/images/kc-logo.png"> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
 
     <style>
        .header {
@@ -108,7 +112,7 @@ button:hover {
 	 <section class="signup">
 		<div class="split"> 
 		 <div class="container"> 
-		 <img src = "signupPic.jpg">
+		 <img src = "https://img.lovepik.com/element/45009/2311.png_860.png">
 		 </div>
 		 <div class="container">
 			 <h1 style="color: cadetblue;font-family: fantasy;"> Student Registration</h1>
@@ -170,6 +174,17 @@ button:hover {
       </div>
     </div>
 	 </section> 
+	 <section class="footer">
+    <h4>About Us</h4>
+    <div class="icon">
+        <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
+        <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
+        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+        <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
+        <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+    </div>
+    <p>Made with &hearts; by Tech Elites.</p>
+ </section>
   
 <div class="copyright">
     <p>&copy; 2023 Kalindi College All rights reserved.</p>
