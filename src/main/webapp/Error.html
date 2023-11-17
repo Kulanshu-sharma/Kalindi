@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <script src="KalindiKiosk.js"></script>
+    <style>
+        body {
+			color:black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url(https://media.istockphoto.com/id/1199809384/photo/3d-render-design-for-banner-template-on-website-question-mark-sign-on-purple-background-faq.jpg?s=612x612&w=0&k=20&c=F-l2WTMCn__Mj2PmLbwgu7mkXKzinym7uPEBJH4pAbM=);
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position:center;
+            
+        }
+
+        .error-container {
+			padding: 10%;
+			margin:10%;
+            display: flex;  
+            height: 50vh;
+           
+        }
+
+        .error-message {
+            max-width: 600px;
+            padding: 0%;
+            margin:0%;
+            text-align:center;
+            
+            
+        }
+        
+        button{
+			width: 30%;
+	        padding: 10px;
+	        margin: 5px 0 5px 0;
+            background-color:red;	
+            border-radius: 50px;
+
+		}
+		
+		.image-container {
+			padding:0%;
+			margin:50%;
+			margin-top: 50%;
+			height:0%;
+			width:0%;
+			
+			
+		}
+
+		
+  </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-message">
+            <p><h1>Oops! Something wrong here....</h1>
+             <h3>Invalid username or password!! </h3></p>
+            <br>
+            <button onclick="goToLoginPage()">Try again</button>
+            <button onclick="goToHomePage()">Home</button>
+          <!--  <div class="image-container">
+				<img src="https://thumbs.dreamstime.com/b/abstract-question-mark-design-colorful-cog-wheels-47238532.jpg">
+			</div> -->
+                       
+
+        </div>
+    </div>
+     
+           
+</body>
+</html>
