@@ -10,52 +10,50 @@ public class Feedback
 { 
 	public static ReplyDTO sendFeedbackMail(FeedbackDTO feedbackDTO) {
 		ReplyDTO replyDTO = new ReplyDTO();
-		
-		return replyDTO;
+		String subject = feedbackDTO.getName()+" Query : "+feedbackDTO.getSubject();
+        String message = "Dear Tech Elites Team,<br><br>"+feedbackDTO.getEmail()+" sent a message. Please Have a look<br><br><b>"+feedbackDTO.getMessage()+"</b><br><br>Thanks<br>TechElites Team";
+		String to = "helpdesk.techelites12@gmail.com";
+		String from = "helpdesk.techelites12@gmail.com";
+		String pass = "rxmj ubyd mbrs jevt"; 
+		try{
+			Feedback.send(from,pass,to,subject,message); 
+		}
+		catch (Exception e) {
+			replyDTO.setMsg("Mail Server Down!!! Mail Not Sent");
+			replyDTO.setErrFlag(true);
+			return replyDTO;
+		}   
+		replyDTO.setMsg("Mail Sent Successfully");
+		replyDTO.setErrFlag(false);
+        return replyDTO;
 	}
-	public static void main(String [] args) 
-{	 
-
-	String recipient = "vaishnavi.diya15@gmail.com"; 
-
-	FeedbackDTO sender = new FeedbackDTO();
-	String email = sender.getEmail();
 	
-	
-	String host = "127.0.0.1"; 
-
-	// Getting system properties 
-	Properties properties = System.getProperties(); 
-
-	// Setting up mail server 
-	properties.setProperty("mail.smtp.host", host); 
-
-    Session session = Session.getDefaultInstance(properties); 
-
-	try
-	{ 
-		FeedbackDTO sc = new FeedbackDTO();
-		MimeMessage message = new MimeMessage(session); 
-
-		// Set From Field: adding senders email to from field. 
-		message.setFrom(new InternetAddress(email)); 
-
-		// Set To Field: adding recipient's email to from field. 
-		message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); 
-
-		// Set Subject: subject of the email 
-		message.setSubject(sc.getSubject()); 
-
-		// set body of the email. 
-		message.setText(sc.getMessage()); 
-
-		// Send email. 
-		Transport.send(message); 
-		System.out.println("Mail successfully sent"); 
-	} 
-	catch (Exception mex) 
-	{ 
-		mex.printStackTrace(); 
-	} 
-} 
+	public static void send(String from,String password,String to,String sub,String msg) throws Exception{  
+		//Get properties object    
+		Properties props = new Properties();    
+		props.put("mail.smtp.host", "smtp.gmail.com");    
+		//props.put("mail.smtp.socketFactory.port", "465");    
+		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");    
+		props.put("mail.smtp.auth", "true");    
+		props.put("mail.smtp.port", "465");    
+		props.put("mail.smtp.starttls.enable", "true");
+		//props.put("mail.smtp.starttls.required", "true");
+		props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+		//get Session   
+		Session session = Session.getDefaultInstance(props,    
+				new javax.mail.Authenticator() {    
+			protected PasswordAuthentication getPasswordAuthentication() {    
+				return new PasswordAuthentication(from,password);  
+			}    
+		});    
+		//compose message    
+		  
+			MimeMessage message = new MimeMessage(session);    
+			message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));    
+			message.setSubject(sub);    
+			message.setContent(msg,"text/html");    
+			//send message  
+			Transport.send(message);    
+			System.out.println("message sent successfully");     
+	}  
 } 

@@ -22,6 +22,12 @@ feedbackDTO.setSubject(subject);
 feedbackDTO.setMessage(message);
 
 ReplyDTO replyDTO = Feedback.sendFeedbackMail(feedbackDTO);
+if(replyDTO.isErrFlag()){
+	%><h2 style="text-align:center;"><%=replyDTO.getErrMsg()%></h2><%
+}
+else{
+	%><h2 style="text-align:center;">Message Delivered Successfully!!! They will Catch you Shortly</h2><%
+}
 %>
 </body>
 </html>
