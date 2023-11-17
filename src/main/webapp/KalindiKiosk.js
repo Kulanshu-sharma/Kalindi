@@ -29,3 +29,7 @@ function openChoiceScreen(){
 function markOpinion(){
 	window.location.href="COMINGSOON.html";
 }
+
+function goToHomePage(){
+	        window.location.href="index.jsp";
+}
