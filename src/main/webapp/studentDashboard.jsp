@@ -162,7 +162,7 @@
     <div class="row align-items-center justify-content-xl-between">
       <div class="col-xl-6 m-auto text-center">
         <div class="copyright">
-          <p>Developed by <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Tech Elites</a></p>
+          <p>Developed by <a href="teampage.html" target="_blank">Tech Elites</a></p>
         </div>
       </div>
     </div>

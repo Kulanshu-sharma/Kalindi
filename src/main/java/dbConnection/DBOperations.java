@@ -85,7 +85,7 @@ public class DBOperations {
 			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT,st.SLOT_ID AS SLOT_ID, t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
 					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
 			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
-			        + "AND t.DAY_ID="+3+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
+			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.DEPARTMENT_ID="+timetableDTO.getDepartmentId()+" AND "
 			        + "t.COURSE_ID="+timetableDTO.getCourseId()+" AND t.SEMESTER_ID="+timetableDTO.getSemesterId();
 			if(timetableDTO.getGroupId()!=0) {
 				query = query + " AND t.GROUP_ID = "+timetableDTO.getGroupId();

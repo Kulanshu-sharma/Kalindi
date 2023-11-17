@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Student Registration</title>
+<link rel="stylesheet" href="Dashboard.css">
+<script src="KalindiKiosk.js"></script>
 </head>
 <body>
 <%
@@ -31,6 +33,7 @@ if(replyDTO.isErrFlag()){
 <%}
 else{
 	%><h1 style="color:green;text-align:center;"><%=replyDTO.getMsg()%></h1>
+	<button id="buttonTab" class="buttonBack" onclick="goToHomePage()" style="display:block">Go back to Home page</button>
 <%}%>
 </body>
 </html>
