@@ -22,7 +22,6 @@ nav img {
       }
       .split{
 		  margin-top:5%;
-		  display:flex;
 		  justify-content:space-evenly;
 		  }
 	   .container{
@@ -90,6 +89,14 @@ nav img {
         .tags{
               font-family: cursive;
         }
+
+
+@media (min-width: 1200px) {
+  .split {
+    display:flex;
+  }
+}
+        
 
 button:hover {
   opacity:1;
