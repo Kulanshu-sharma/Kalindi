@@ -724,7 +724,7 @@ h3{
 .photo img:hover{
 	box-shadow: 0 0 20px 0px rgba(0,0,0,0.8);
 }
-@media(max-width:900px) and (min-width:300px){
+/*@media(max-width:900px) and (min-width:300px){
     .container{
         flex-direction:column;
         display: block;
@@ -735,7 +735,7 @@ h3{
 	 }
     
 }
-
+*/
 	
 
 
