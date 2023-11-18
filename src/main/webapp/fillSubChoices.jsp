@@ -152,30 +152,6 @@ nav img {
 					</td>
 				</tr>
 			</table>
-			
-            <div class="nav-links" id="navLinks">
-                <i class="fas fa-times" onclick="hideMenu()"></i>
-                <ul><b>
-                    <li><a href="frontpage.html"><b>HOME</b></a></li>
-                    <li><a href="about.html"><b>ABOUT</b></a></li>
-                    <li><a href="course.html"><b>COURSE</b></a></li>
-                    <li><a href="admission.html"><b>ADMISSION</b></a></li>
-                    <li><a href="contact.html"><b>CONTACT</b></a></li>
-                    <li><a href="principal.html"><b>INFO</b></a></li>
-                     <li><div class="login">
-						  <a href="#" class="dropbtn"><b>LOGIN</b></a>
-						  <div class="login-content">
-						    <div class="option1"><a href="Login_Screen.html"><b>Student</b></a><br><hr></div>
-						    <div class="option2"><a href="#"><b>Faculty</b></a><br></div>
-						    <!--<div class="option3"><a href="#"><b>Alumni</b></a></div>-->
-						  </div>
-						</div>
-					 </li>		
-                    
-                    <li><a href="Gallery.html"><b>GALLERY</b></a></li></b>
-                </ul>
-            </div>
-            <i class="fas fa-bars" onclick="showMenu()"></i>
         </nav>
 
     </section>

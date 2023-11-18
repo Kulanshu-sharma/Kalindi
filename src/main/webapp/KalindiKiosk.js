@@ -33,3 +33,6 @@ function markOpinion(){
 function goToHomePage(){
 	        window.location.href="index.jsp";
 }
+function goToDashboardPage(){
+	        window.location.href="studentDashboard.jsp";
+}

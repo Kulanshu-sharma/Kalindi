@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="KalindiKiosk.js"></script>
 </head>
 <body>
 <%
@@ -27,11 +28,17 @@ String errMsg;
 String msg;
 if(replyDTO.isErrFlag()){
 	errMsg = replyDTO.getErrMsg();
-	%><h2><%=errMsg%></h2><%
+	%>
+	<h2><%=errMsg%></h2>
+	<button id="buttonTab" class="buttonBack" onclick="goToDashboardPage()" style="display:block">Go back to Profile Page</button>
+	<%
 }
 else{
 	msg = replyDTO.getMsg();
-	%><h2><%=msg%></h2><%
+	%>
+	<h2><%=msg%></h2>
+	<button id="buttonTab" class="buttonBack" onclick="goToDashboardPage()" style="display:block">Go back to Profilepage</button>
+	<%
 }
 %>
 

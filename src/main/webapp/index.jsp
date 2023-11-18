@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
-<%FrontPageBB.init(request); %>
 </head>
 <body>
 	<section class="header">
@@ -71,13 +70,14 @@
 
 <section class="notice">
 	<div class="row">
-		<div class="notice-col">
+		<div class="notice-col" id="notice">
 			<div class="nb-col">
 				<h3>NOTICE BOARD</h3>
 				<div class="notice-tab">
-            	<a href="https://www.kalindicollege.in/notice/#general" class="rm-btn"><b>General</b></a>
-            	<a href="https://www.kalindicollege.in/notice/#students" class="rm-btn"><b>Students</b></a>
-            	<a href="https://www.kalindicollege.in/notice/#staff" class="rm-btn"><b>Staff</b></a>
+            	<a href="https://www.kalindicollege.in/notice/#general"><b>General</b></a>
+            	<a href="https://www.kalindicollege.in/notice/#students"><b>Students</b></a>
+            	<a href="https://www.kalindicollege.in/notice/#staff"><b>Staff</b></a>
+            	
             	<ul>
 					<br>
 					<%for(NoticeDTO generalList : FrontPageBB.generalNotices){ %>
@@ -87,7 +87,7 @@
 					<br>
 					<a href="https://www.kalindicollege.in/notice/" class="rm-btn" style="color: white;">View more</a>
 				</ul>
-				
+			
         	</div>
 			</div>
 			

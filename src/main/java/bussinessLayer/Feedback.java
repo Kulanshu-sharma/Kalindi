@@ -13,13 +13,13 @@ public class Feedback
 		String subject = feedbackDTO.getName()+" Query : "+feedbackDTO.getSubject();
         String message = "Dear Tech Elites Team,<br><br>"+feedbackDTO.getEmail()+" sent a message. Please Have a look<br><br><b>"+feedbackDTO.getMessage()+"</b><br><br>Thanks<br>TechElites Team";
 		String to = "helpdesk.techelites12@gmail.com";
-		String from = "helpdesk.techelites12@gmail.com";
+		String from = "helpdesk.techelites121@gmail.com";
 		String pass = "rxmj ubyd mbrs jevt"; 
 		try{
 			Feedback.send(from,pass,to,subject,message); 
 		}
 		catch (Exception e) {
-			replyDTO.setMsg("Mail Server Down!!! Mail Not Sent");
+			replyDTO.setErrMsg("Mail Server Down!!! Message Not Sent");
 			replyDTO.setErrFlag(true);
 			return replyDTO;
 		}   
