@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
+
 
 import com.mysql.cj.jdbc.Blob;
 
@@ -330,7 +330,7 @@ public class DBOperations {
 		}
 		try {
 
-			String sql = "INSERT INTO STUDENT_OTHER_INFO VALUES(?,?,?,?,?,0)";
+			String sql = "INSERT INTO STUDENT_OTHER_INFO VALUES(?,?,?,?,?,0,?,0)";
 			Connection con = DBConnection.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1,Integer.parseInt(electiveSubjectDTO.getUserId()));
@@ -338,8 +338,9 @@ public class DBOperations {
 			stmt.setInt(3,electiveSubjectDTO.getAec());
 			stmt.setInt(4,electiveSubjectDTO.getVac());
 			stmt.setInt(5,electiveSubjectDTO.getSec());
+			stmt.setInt(6,electiveSubjectDTO.getDsc());
 			stmt.executeUpdate();
-			replyDTO.setMsg("Yippiii!!! You are done with the Elective subjects Registration:)");
+			replyDTO.setMsg("Congratulations!!! You are done with the Elective subjects Registration:)");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			replyDTO.setErrFlag(true);
@@ -366,14 +367,14 @@ public class DBOperations {
 			String subjectIdsStr="";
 			if(listOfSubjectIds.get("ge")!=null)
 				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("ge");
+			if(listOfSubjectIds.get("dsc")!=null)
+				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("dsc");
 			if(listOfSubjectIds.get("vac")!=null)
 				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("vac");
 			if(listOfSubjectIds.get("sec")!=null)
 				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("sec");
 			if(listOfSubjectIds.get("aec")!=null)
 				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("aec");
-			if(listOfSubjectIds.get("dsc")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("dsc");
 			if(listOfSubjectIds.get("activity")!=null)
 				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("activity");
 			if(listOfSubjectIds.get("sports")!=null)

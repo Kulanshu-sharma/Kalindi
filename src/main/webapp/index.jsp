@@ -44,9 +44,9 @@
                                 </ul>
                      </li>-->
                      <li><div class="login">
-						  <a href="login.html" class="dropbtn">LOGIN</a>
+						  <a href="Login_Screen.html" class="dropbtn">LOGIN</a>
 						  <div class="login-content">
-						    <div class="option1"><a href="login.html"><b>Student</b></a><br><hr></div>
+						    <div class="option1"><a href="Login_Screen.html"><b>Student</b></a><br><hr></div>
 						    <div class="option2"><a href="#"><b>Faculty</b></a><br></div>
 						    <!--<div class="option3"><a href="#"><b>Alumni</b></a></div>-->
 						  </div>
