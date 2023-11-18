@@ -139,6 +139,7 @@ nav .fas {
 	.table-wrap {
     overflow-x: scroll;
  	}
+ 
 } 
 
 h1{
@@ -190,6 +191,9 @@ h1{
     transition: 0.5s;
     overflow: hidden;
 }
+#notice{
+	width: 50%;
+}
 
 .nb-col a{
 	color: #000;
@@ -236,6 +240,9 @@ p {
     text-align: justify;
     line-height: 22px;
 }
+
+	
+
 
 /* COURSE */
 
@@ -673,6 +680,63 @@ h3{
 	background-color: #000;
 	color: #000;
 }
+/*Notice Section */
+
+
+.containers{
+    max-width: 1224px;
+    width: 90%;
+    margin:auto;
+    padding:30px ;
+    padding-right: 50px;
+    
+    
+}
+.container{
+    margin:auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   
+    
+}
+    
+.photo img{
+    width:330px;
+    height: 330px;
+    border-radius:5px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+  
+}
+.tagline{
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;;
+}
+.photo img:hover{
+	box-shadow: 0 0 20px 0px rgba(0,0,0,0.8);
+}
+@media(max-width:900px) and (min-width:300px){
+    .container{
+        flex-direction:column;
+        display: block;
+        }
+     .photo img{
+		 height: 400px;
+		 width: 400px;
+	 }
+    
+}
+
+	
 
 
 
