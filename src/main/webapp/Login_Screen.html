@@ -1,262 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
-    <link rel="icon" href="https://www.kalindicollege.in/wp-content/themes/kalindi/assets/images/kc-logo.png"> 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
-
-    <style>
-    *{
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-
-
-    }
-
-body {
-         font-family: Arial, sans-serif;
-          background-color:beige;
-     }
-   
-   
- .header {
-    min-height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7));
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-
-
-nav img {
-    width: 257.9px;
-    height: 73.7px;
-}
-
-
-.split{
-    margin-top: 5%;
-    justify-content:space-evenly ;
-}
-
-@media (min-width: 1200px) {
-  .split {
-    display:flex;
-  }
-}
-
-.container{
-    flex-basis: 47%;
-    background-color:lightblue;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    padding: 20px 12px;
-    position: relative;
-    overflow: hidden;
-}
-
-
-        .left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 20px;
-        }
-
-        .right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f1f1f1;
-            padding: 20px;
-        }
-
-        .login-form {
-            max-width: 400px;
-            width: 100%;
-        }
-
-.container img{
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-
-h2{
-    text-align: center;
-    
- }        
- 
-select {
-	width: 90%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background:blanchedalmond;
-    border-radius: 47px;
-	
-	
-}
- 
-
-
-input[type="text"],input[type="password"]{
- 	          width: 90%;
-              padding: 15px;
-  		      margin: 5px 0 22px 0;
- 		      display: inline-block;
-  		      border: none;
-  			  background-color: blanchedalmond;
-  			  color: black;
-  			  border-radius: 47px;
-  			  
-
-}
-
-
-button{
-	width: 90%;
-	padding: 10px;
-	margin: 5px 0 5px 0;
-    background-color:darkcyan;	
-    border-radius: 47px;
-
-}
-
-.footer{
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-    background-color: azure;
-}
-
-.footer h4{
-    margin-bottom: 25px;
-    margin-top: 20px;
-    font-weight: 600;
-
-}
-
-.icon fa-brands{
-    margin:0 30px;
-    cursor: pointer;
-    padding: 18px;
-}
-
-.copyright{
-	
-    background-color: darkgray;
-    text-align: center;
-}
-
-.error {
-            color: red;
-        }
-        
-        
-        @media screen and (max-width: 600px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .left, .right {
-                flex: 1;
-            }
-        }
-    
-	</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css">
+<script src="KalindiKiosk.js"></script>
 </head>
-<body>
-    <section class="header">
-        <nav>
-            <a href="index.html" class="logo"><img src="logo.png"></a>
-            
-
-    <section class="login">
-        <div class="split">
-            <div class="container">
-                <img src="https://media.istockphoto.com/id/1394452639/vector/coputer-internet-cyber-security-background-cyber-crime-vector-illustration-digital-lock.jpg?b=1&s=612x612&w=0&k=20&c=4bFGVSY_FzCBqQsDPOv2In4RWFn9hZgRhdJdwjarJ3o=">
-            </div>
-<div class="container">
-    <h2>Login</h2>
-    <br>
-    <form id="loginForm" action="studentDashboard.jsp" method="post" onsubmit="return validateForm()">
-        <select name="userType" id="userType">
-            <option value="1">Student</option>
-            <option value="2">Faculty</option>
-        </select>
-        <br><br>
-        <input type="text"name="name"placeholder="College Roll Number" required>
-        <input type="password" name="password" id="password" placeholder="Password" required>
-
-        <BR>
-        <button type="submit" onclick="validateform()">Login</button>
-        <BR><BR>
-
-        <p id="errorText" class="error"></p>
-            
-
-        
-        <DIV class="fotter">
-			<!--<P><a href="#"> Forgot Password?</a></P>-->
-            <br>
-			<P>Don't have an account? <a href="studentSignUpForm.jsp">  Register </a></P>
-		</DIV>
-    </form>
-
-</div>
-</div>
-</section>
-<!--FOOTER-->
-
-<section class="footer">
-    <h4>About Us</h4>
-    <div class="icon">
-        <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
-        <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
-        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
-        <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
-        <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(bg-img.jpeg);background-size: auto;">
+<div id="id01" class="modal" style="display:block"">
+  
+  <form class="modal-content animate" action="studentDashboard.jsp" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="profile.png" alt="Avatar" class="avatar">
     </div>
-    <p>Made with &hearts; by Tech Elites.</p>
-    
-</section>
 
-<!--COPYRIGHT-->
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="name" required>
 
-<div class="copyright">
-    <p>&copy; 2023 Kalindi College All rights reserved.</p>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="goToHomePage()" class="cancelbtn">Cancel</button>
+      <span class="psw">Not Registered? <a href="studentSignUpForm.jsp">Signup</a></span>
+    </div>
+  </form>
 </div>
-
 
 <script>
-    function validateForm() {
-        var userType = document.getElementById("userType").value;
-        var name = document.getElementById("name").value;
-        var password = document.getElementById("password").value;
-        if (userType === "student" && name === "student" && password === "studentpass") {
+// Get the modal
+var modal = document.getElementById('id01');
 
-            return true;
-        } else if (userType === "Faculty" && name === "Faculty" && password === "Facultypass") {
-            return true;
-        } else {
-            document.getElementById("errorText").textContent = "Invalid credentials.";
-            return false;
-        }
-   
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        window.location.href="index.jsp";
     }
+}
 </script>
+
 </body>
 </html>

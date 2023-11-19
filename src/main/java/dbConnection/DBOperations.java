@@ -44,7 +44,7 @@ public class DBOperations {
 		SignupDTO signupDTO = (SignupDTO) paramDTO.getData();
 		Connection con = DBConnection.getConnection();
 		try {
-			PreparedStatement stmt= con.prepareStatement("insert into STUDENT values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement stmt= con.prepareStatement("insert into student values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			stmt.setInt(1,1001);
 			stmt.setString(2,signupDTO.getFirstName());
 			stmt.setString(3,signupDTO.getCollege_Rollno());
@@ -269,7 +269,7 @@ public class DBOperations {
 		NoticeDTO staffDTO = null;
 		try {
 
-			String sql = "SELECT NOTICE_ID,DATE,CONTENT,LINK,NOTICE_TYPE FROM NOTICE_TBL ORDER BY DATE DESC LIMIT 5 OFFSET 0";
+			String sql = "SELECT NOTICE_ID,DATE,CONTENT,LINK,NOTICE_TYPE FROM notice_tbl ORDER BY DATE DESC LIMIT 5 OFFSET 0";
 			Connection con = DBConnection.getConnection();
 			PreparedStatement statement = con.prepareStatement(sql);
 			ResultSet resultSet = statement.executeQuery();
@@ -330,7 +330,7 @@ public class DBOperations {
 		}
 		try {
 
-			String sql = "INSERT INTO STUDENT_OTHER_INFO VALUES(?,?,?,?,?,0,?,0)";
+			String sql = "INSERT INTO student_other_info VALUES(?,?,?,?,?,0,?,0)";
 			Connection con = DBConnection.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1,Integer.parseInt(electiveSubjectDTO.getUserId()));
@@ -359,29 +359,15 @@ public class DBOperations {
 		try {
 			connection = DBConnection.getConnection();
 			int day = LocalDate.now(ZoneId.of("Asia/Kolkata")).getDayOfWeek().getValue();
+			
+			for(Entry<String,Integer> data : listOfSubjectIds.entrySet()) {
+			
 			String query =  "SELECT sb.SUBJECT_NAME AS SUBJECT,sb.SUBJECT_ID AS SUBJECT_ID,tb.TEACHER_NAME AS TEACHER,st.DURATION AS SLOT, st.SLOT_ID AS SLOT_ID, t.LAB_TUT AS LAB,t.LOCATION AS LOCATION,t.MODE AS MODE "
 					+ "FROM timetable as t,subject_tbl as sb,teacher_tbl as tb,slot_tbl as st "
 			        + "WHERE t.SUBJECT_ID=sb.SUBJECT_ID AND t.TEACHER_ID=tb.TEACHER_ID AND t.SLOT_ID=st.SLOT_ID "
-			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.SUBJECT_ID IN (?)";
-			
-			String subjectIdsStr="";
-			if(listOfSubjectIds.get("ge")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("ge");
-			if(listOfSubjectIds.get("dsc")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("dsc");
-			if(listOfSubjectIds.get("vac")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("vac");
-			if(listOfSubjectIds.get("sec")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("sec");
-			if(listOfSubjectIds.get("aec")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("aec");
-			if(listOfSubjectIds.get("activity")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("activity");
-			if(listOfSubjectIds.get("sports")!=null)
-				subjectIdsStr = subjectIdsStr+(subjectIdsStr.isEmpty()?"":",")+listOfSubjectIds.get("sports");
+			        + "AND t.DAY_ID="+day+" AND t.COLLEGE_ID=33 AND t.SUBJECT_ID = "+data.getValue();
 			
 			stmt = connection.prepareStatement(query);
-			stmt.setString(1,subjectIdsStr);
 			resultSet = stmt.executeQuery();
 			while (resultSet.next()) {
 				result = new TimetableDTO();
@@ -389,16 +375,15 @@ public class DBOperations {
 		        result.setTeacherName(resultSet.getString("TEACHER"));
 		        result.setSlotName(resultSet.getString("SLOT"));
 		        result.setLabOrTut(resultSet.getInt("LAB"));
-		        int subjectId = resultSet.getInt("SUBJECT_ID");
-		        for(Entry<String,Integer> data : listOfSubjectIds.entrySet()) {
-		        	if(data.getValue()==subjectId)
-		        		result.setLabOrTutString(data.getKey().toUpperCase());
-		        }
+		        result.setLabOrTutString(data.getKey().toUpperCase());
 		        result.setLocation(resultSet.getString("LOCATION"));
 		        result.setMode(resultSet.getString("MODE"));
 		        result.setSlotId(resultSet.getInt("SLOT_ID"));
 		        resultList.add(result);
 			}
+			
+		}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -409,7 +394,7 @@ public class DBOperations {
 		Map<String,Integer> listOfSubjectIds = new HashMap<String, Integer>();
 		try {
 			Connection connection = DBConnection.getConnection();
-			String query = "SELECT SEC,VAC,GE,AEC,ACTIVITY FROM STUDENT_OTHER_INFO WHERE COLLEGE_ROLLNO = ?";
+			String query = "SELECT SEC,VAC,GE,AEC,ACTIVITY FROM student_other_info WHERE COLLEGE_ROLLNO = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1,COLLEGE_ROLLNO);
 			ResultSet resultSet = preparedStatement.executeQuery();
