@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,23 +10,28 @@
 		padding:0;
 	}
 body{
-	background:#efefef;
+	background: rgb(148,170,233);
+	background: radial-gradient(circle, rgba(148,170,233,1) 0%, rgba(255,255,255,1) 70%, rgba(255,255,255,1) 100%);
 	font family : sans-serif;
 	}
-.Title-Box{
-	text-align: center;
-    margin: 100px auto 50px;
-}
+
 .profile-box{
-	width: 300px;
-	height: 240px;
+	width: 411px;
+	height: 177px;
 	background:#fff;
-	border-radius: 4px;
-	margin-bottom: 30px;
+	border-radius: 65px;
+	margin-bottom: 85px;
+	margin-top: 80px;
 	box-shadow: 0 10px 10px 10px rgba(115,193,255,0.1);
-	padding:20px;
+	padding:31px;
 	position: relative;
-	margin-left: 37.5%;
+	margin-left: 33.5%;
+    transition: background 0.5s;
+}
+.profile-box h4{
+    margin-top: -1px;
+    margin-bottom:2px;
+    color:darkslateblue
 }
 .profile-box img{
 	width: 100px;
@@ -33,145 +39,508 @@ body{
 	top: 20px;
 	right: 20px;
 	border-radius: 4px;
+    transition: .5s;
 }
 .profile-box p{
-	text-align: center;
+	text-align: left;
 	line-height:24px;
 	color:#555;
 }
-.profile{
+.profilef{
 	width: 300px;
 	height: 240px;
 	background:#fff;
-	border-radius: 4px;
-	margin-bottom: 30px;
+	border-radius: 50px;
+	margin-bottom: 100px;
 	box-shadow: 0 10px 10px 10px rgba(115,193,255,0.1);
 	padding:20px;
 	position: relative;
-	
+	transition: background 0.5s;
 }
-.profile img{
+.profilef img{
 	width: 100px;
 	position: absolute;
 	top: 20px;
 	right: 20px;
 	border-radius: 4px;
+    transition: .5s;
 }
-.profile p{
-	text-align: center;
+.profilef h4{
+    margin-top: 15px;
+    margin-bottom:5px;
+    color:darkorchid
+}
+.profilef p{
+	text-align: left;
 	line-height:24px;
 	color:#555;
 	
 }
+.profileb{
+	width: 300px;
+	height: 240px;
+	background:#fff;
+	border-radius: 50px;
+	margin-bottom: 100px;
+	box-shadow: 0 10px 10px 10px rgba(115,193,255,0.1);
+	padding:20px;
+	position: relative;
+	transition: background 0.5s;
+}
+.profileb img{
+	width: 100px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border-radius: 4px;
+    transition: .5s;
+}
+.profileb h4{
+    margin-top: 15px;
+    margin-bottom:5px;
+    color:olive
+}
+.profileb p{
+	text-align: left;
+	line-height:24px;
+	color:#555;
+}
+.profiled{
+	width: 300px;
+	height: 240px;
+	background:#fff;
+	border-radius: 50px;
+	margin-bottom: 100px;
+	box-shadow: 0 10px 10px 10px rgba(115,193,255,0.1);
+	padding:20px;
+	position: relative;
+	transition: background 0.5s;
+}
+.profiled img{
+	width: 100px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border-radius: 4px;
+    transition: .5s;
+}
+.profiled h4{
+    margin-top: 15px;
+    margin-bottom:5px;
+    color:teal
+}
+.profiled p{
+	text-align: left;
+	line-height:24px;
+	color:#555;
+}
 .team-row{
 	display : flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	width: 85%;
 	margin: auto;
 }
+.team-rowdt{
+	display : flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 70%;
+	margin: auto;
+}
+.profile-box img:hover{
+    width:240px;
+}
+.profilef img:hover{
+    width:240px;
+}
+.profileb img:hover{
+    width:240px;
+}
+.profiled img:hover{
+    width:240px;
+}
+.profile-box:hover{
+    background:lightgray
+}
+.profilef:hover{
+    background:rgb(156, 242, 237)
+}
+.profileb:hover{
+    background:rgb(163, 221, 191)
+}
+.profiled:hover{
+    background:rgb(233, 218, 158)
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background-color: azure;
+}
 
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
 
+}
 
+.icon fa-brands{
+    margin:0 30px;
+    cursor: pointer;
+    padding: 18px;
+}
+
+.copyright{
+    background-color: darkgray;
+    text-align: center;
+}
+.container{
+	width: 292px;
+	height: 42px;
+	border-radius: 30%;
+	margin: 26px auto;
+	margin-left: 476px;
+	background-color: #0F97BF;
+	position: relative;
+}
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: -3.1em;
+  margin-left: auto;
+  margin-right: 50%;
+  border-style: inset;
+  border-width: -1px;
+} 
+.hr3 {
+	display: block;
+  margin-top: 0.5em;
+  margin-bottom: -3.1em;
+  margin-left: 50%;
+  margin-right: auto;
+  border-style: inset;
+  border-width: -1px;
+}
+.profile-box h1{
+	color:white
+}
+.inner-header flex h1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 48px;
+}
+
+.content flex p {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(
+    60deg,
+    rgba(84, 58, 183, 1) 0%,
+    rgba(0, 172, 193, 1) 100%
+  );
+  color: white;
+}
+
+.logo {
+  width: 50px;
+  fill: white;
+  padding-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height: 19vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.content {
+  position: relative;
+  height: 10vh;
+  text-align: center;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* /* Shrinking for mobile */
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
 
 </style>
 	
 </head>
-
-	<div class="Title-Box">
-		<h1>OUR TEAM</h1>
-		<h2>TEACH_ELITES</h2>
+<div class="header">
+	<!--Content before waves-->
+	<div class="inner-header flex">
+	  <h1 style="font-family: Arial Black, Gadget, sans-serif;
+	  font-size: 50px;
+	  letter-spacing: 1.4px;
+	  word-spacing: -0.4px;
+	  color: white;
+	  font-weight: 700;
+	  text-decoration: underline solid rgb(68, 68, 68);
+	  font-style: italic;
+	  font-variant: small-caps;
+	  text-transform: capitalize;">OUR TEAM PAGE</h1>
+	  <div class="content flex">
+		<p style="margin-top: 100%; margin-right: 500%;">tech_elites</p>
+	  </div>
 	</div>
+
+	<!--Waves Container-->
+	<div>
+	  <svg
+		class="waves"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="0 24 150 28"
+		preserveAspectRatio="none"
+		shape-rendering="auto"
+	  >
+		<defs>
+		  <path
+			id="gentle-wave"
+			d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+		  />
+		</defs>
+		<g class="parallax">
+		  <use
+			xlink:href="#gentle-wave"
+			x="48"
+			y="0"
+			fill="rgba(255,255,255,0.7"
+		  />
+		  <use
+			xlink:href="#gentle-wave"
+			x="48"
+			y="3"
+			fill="rgba(255,255,255,0.5)"
+		  />
+		  <use
+			xlink:href="#gentle-wave"
+			x="48"
+			y="5"
+			fill="rgba(255,255,255,0.3)"
+		  />
+		  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+		</g>
+	  </svg>
+	</div>
+	<!--Waves end-->
+  </div>
+  <!--Header ends-->
+
+  <!--Content starts-->
+  
+	<!--<div class="Title-Box">
+		<h1>MEET OUR TEAM</h1>
+		<h5>TEACH_ELITES</h5>
+	</div>-->
+	
+		</div>
 		<div class="profile-box">
 			<h4>Kulanshu Sharma</h4>
 			<small>Team Leader and Instrutor</small>
-			<img src="C:\Users\Vanshita Kakkar\Downloads\WhatsApp Image 2023-11-15 at 11.01.20 PM.jpeg">
+			<img src="KULANSHU SIR.jpeg">
 		
-		<p>Introducing exceptional Team Leader and Instructor of tech_elites,Mr.Kulanshu Sharma. With his guidance, we're set to create our website. His leadership and instructional skills have inspired us all.</p>
+		<p><br>Introducing exceptional Team Leader and <br>Instructor of tech_elites, Mr.Kulanshu Sharma. With his guidance, we're set to create our website. His leadership and instructional skills have inspired us all.</p>
 		</div>
-		<h1><center>Operational Head</center></h1><br>
+		<hr>
+		<div class="container">
+		<h1><center style="color:white;">Operational Head</center></h1><br>
+	    </div>
 		<div class="profile-box">
 			<h4>Vasanti</h4>
 			<small>Operational Head</small>
-			<img src="">
-			<p>Allow me to introduce our operational head through the lens of their peers .Our operational head is the linchpin of our team's success. With a commitment to excellence she navigate challenges seamlessly </p>
+			<img src="VASANTI.jpeg">
+			<p><br>Allow me to introduce our operational head <br> through the lens of their peers.<br>Our operational head is the linchpin of our team's success. With a commitment to excellence she navigate challenges seamlessly </p>
 		
 		</div>
-		<h1><center>Front-End Team</center></h1><br>
+		<div class="hr3"></div>
+		<div class="container">
+		<h1><center style="color:white;">Front-End Team</center></h1><br></div>
 		<div class="team-row">
-		<div class="profile">
+		<div class="profilef">
 			<h4>Nidhi Mishra</h4>
 			<small>UI layer developer</small>
-			<img src="">
-			<p>We"re thrilled to have Nidhi Mishra on board who enchanced our project with her frontend knowledge which our vision to pixel perfect reality</p>
+			<img src="NIDHI.jpeg">
+			<p><br>We're thrilled to have <br>
+                Nidhi Mishra on board who enchanced our project with her frontend knowledge which our vision to pixel perfect reality</p>
 		
 		</div>
-		<div class="profile">
+		<div class="profilef">
 			<h4>Nishita</h4>
 			<small>UI layer developer</small>
-			<img src="">
-			<p>Introducing our Frontend Maestro in the Web Creation Symphony Meet  Nishita - With a  flair for design and a passion for user experience, she  is the creative force behind the visual magic of our website project. Get  ready to be amazed and witness the seamless blend of form and function in our digital masterpiece!  as she  transforms ideas into captivating interfaces.</p>
+			<img src="NISHITA.jpeg">
+.profile h4{
+			<p><br>Introducing our Frontend <br>Maestro in the Web Creation <br>Symphony Meet  Nishita <br> With a flair for design and a<br> passion for user experience, she  is the creative force behind the visual magic of our website project.</p>
 		</div>
-		<div class="profile">
+		<div class="profilef">
 			<h4>Akshima Kakkar</h4>
 			<small>UI layer developer</small>
-			<img src="">
-			<p>Meet the Architect of User Experience Akshima kakkar - In the intricate realm of web design, She stands as our beacon of creativity and technical prowess. With an eye for detail and a passion for crafting seamless user interfaces, she is set to redefine the digital landscape of our website project. Let's embark on this journey of innovation and aesthetics together.</p>
+			<img src="AKSHIMA.jpeg">
+			<p><br>Meet the Architect of User <br> Experience Akshima kakkar <br>In the intricate realm of web <br>design.She stands as our beacon of creativity and technical prowess. With an eye for detail and a passion for crafting seamless user interfaces.</p>
 		</div>
 		
-         <div class="profile">
+         <div class="profilef">
 			<h4>Priya</h4>
 			<small>UI layer developer</small>
-			<img src="">
-			<p>Pleased to introduce Priya -  As the frontend developer. she is good  in crafting engaging and user friendly interfaces. Her focus is on translating design concepts into responsive and interactive website</p>
+			<img src="PRIYA.jpeg">
+			<p><br>Pleased to introduce Priya <br> As the frontend developer. she <br>is good  in crafting engaging and user friendly interfaces.Her focus is on translating design concepts into responsive and interactive website</p>
 		</div>
-		<div class="profile">
+		<div class="profilef">
 			<h4>Akshita Jairamani</h4>
 			<small>UI layer developer</small>
-			<img src="">
-			<p>Meet the driving force behind our captivating and intuitive web interfaces " Akshita "Her expertise lies in creating seamless, user-friendly experiences, making significant contributions to the success of our project.</p>
+			<img src="AKSHITA.jpeg">
+			<p><br>Meet the driving force behind <br> our captivating and intuitive <br>web interfaces " Akshita "<br>Her expertise lies in creating seamless, user-friendly experiences, making significant contributions to the success of our project.</p>
 		</div>
 		</div>
-		<h1><center>Back-End Team</center></h1><br>
+		<hr>
+	<div class="container">
+		<h1><center style="color:white;">Back-End Team</center></h1><br></div>
 		<div class="team-row">
-		<div class="profile">
+		<div class="profileb">
 			<h4>Vaishnavi</h4>
 			<small>Server layer devoloper</small>
-			<img src="">
-			<p>Vaishnavi is a critical part of our team . She is good in crafting the server-side programming that is ensuring our application run smoothly,efficiently and securely.</p>
+			<img src="VAISHNAVI.jpeg">
+			<p><br>Vaishnavi is a critical part of<br> our team . She is good in<br> crafting the server-side <br>programming that is ensuring <br>our application run smoothly,<br>efficiently and securely.</p>
 		</div>
-		<div class="profile">
+		<div class="profileb">
 			<h4>Aishwarya</h4>
 			<small>Server layer devoloper</small>
-			<img src="">
-			<p> Meet our accomplished backend developer , adept at architecting and implementing robust server-side solution . With a proven track record of optimizing databases and ensuring seamless system integration</p>
+			<img src="AISHWARYA.jpeg">
+			<p> <br>Meet our accomplished <br>backend developer , adept at <br> architecting and implementing robust <br> server-side solution . <br>With a proven track record of <br>optimizing databases and ensuring seamless system integration</p>
 			</div>
-		<div class="profile">
+		<div class="profileb">
 			<h4>Garvita Agarwal</h4>
 			<small>Server layer devoloper</small>
-			<img src="">
-			<p>Introducing our server layer devoloper, a key asset to our team. Proficient in architecting and fine-tuning server-side solutions , they play a pivotal role in optimizing our technology stack</p>
+			<img src="GARVITA.jpeg">
+			<p><br>Introducing our server layer <br> devoloper, a key asset to our<br> team. Proficient in architecting<br> and fine-tuning server-side solutions , she play a pivotal role in optimizing our technology stack.</p>
 		</div>
 			
 		</div>
-		<h1><center>Database  Team</center></h1><br>
-		<div class="team-row">
-		<div class="profile">
+		<div class="hr3"></div>
+		<div class="container">
+		<h1><center style="color:white;">Database  Team</center></h1><br></div>
+		<div class="team-rowdt">
+		<div class="profiled">
 			<h4>Divya Gupta </h4>
 			<small>Database management team</small>
-			<img src="">
-			<p>As a key member of our database team, Divya is good in database design ,optimization and maintenance.Proficient in SQL and learned with various database system ,she ensure data integrity,security and efficient retrieval </p>
+			<img src="DIVYA.jpeg">
+			<p><br>As a key member of our <br>database team, Divya is good <br>in database design ,<br>optimization and maintenance.<br>Proficient in SQL and learned <br>with various database system ,she ensure data integrity,security and efficient retrieval </p>
 		</div>
-		<div class="profile">
+		<div class="profiled">
 			<h4>Anshika Gangwar </h4>
 			<small>Database management team</small>
-			<img src="">
-			<p>Meet our another database team member "Anshika gangwar" . she excel in ensuring data integrity and security and her role is pivotal in crafting efficient solutions for seamless data management within our team</p>
+			<img src="ANSHIKA.jpeg">
+			<p><br>Meet our another database<br> team member <br>"Anshika gangwar" . <br>She excel in ensuring data integrity and security and her role is pivotal in crafting efficient solutions for seamless data management within our team</p>
 		</div>
 		
 		</div>
 		
 	
-
+		<section class="footer">
+			<h4>About Us</h4>
+			<div class="icon">
+				<i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
+				<i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
+				<i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+				<i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
+				<i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
+			</div>
+			<p>Made with &hearts; by Tech Elites.</p>
+			
+		</section>
+		
+		<!--COPYRIGHT-->
+		
+		<div class="copyright">
+			<p>&copy; 2023 Kalindi College All rights reserved.</p>
+		</div>
+		<script>
+			var navLinks = document.getElementById("navLinks");
+			function showMenu(){
+				navLinks.style.right="0";
+			}
+			function hideMenu(){
+				navLinks.style.right="-200px";
+			}
+		</script>   
 </body>
 </html>
