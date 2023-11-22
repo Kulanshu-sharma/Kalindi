@@ -12,12 +12,12 @@
 </style>
 <script src="KalindiKiosk.js"></script>
 </head>
-<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(bg-img.jpeg);background-size: auto;">
+<body style="background-image: url(cafe.jpg);background-size: auto;">
 <div id="id01" class="modal" style="display:block"">
   
   <form class="modal-content animate" action="studentDashboard.jsp" method="post">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="goToHomePage()" class="close" title="Close Modal">&times;</span>
       <img src="profile.png" alt="Avatar" class="avatar">
     </div>
 
