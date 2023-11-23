@@ -52,15 +52,27 @@
                     <li><a href="frontpage.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
                     <li><a href="course.html">COURSE</a></li>
+                     <li><div class="Notice">
+						  <a href="#" class="dropbtn">NOTICE</a>
+						  <div class="login-content">
+						    <div class="option1"><a href="https://www.kalindicollege.in/notice/#general"><b>General</b></a><br><hr></div>
+						    <div class="option2"><a href="https://www.kalindicollege.in/notice/#students"><b>Students</b></a><br></div>
+						    <div class="option3"><a href="https://www.kalindicollege.in/notice/#staff"><b>Staff</b></a></div>
+						  </div>
+						</div>
+					 </li>
+					 <li><div class="Events">
+						  <a href="#" class="dropbtn">EVENTS</a>
+						  <div class="login-content">
+						    <div class="option1"><a href="https://www.kalindicollege.in/upcoming-events/"><b>Upcoming</b></a><br><hr></div>
+						    <div class="option2"><a href="https://www.kalindicollege.in/past-events/"><b>Past</b></a><br></div>
+						  </div>
+						</div>
+					 </li>	
                     <li><a href="admission.html">ADMISSION</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                     <li><a href="principal.html">INFO</a></li>
-                    <!--<li class="login-drop"><a href="#">LOGIN</a>|
-                                <ul class="sub-drop">
-                                    <li><a target="_blank" href="#">Student</a></li>
-                                    <li><a target="_blank" href="#">Faculty</a></li>
-                                </ul>
-                     </li>-->
+                    
                      <li><div class="login">
 						  <a href="#" class="dropbtn">LOGIN</a>
 						  <div class="login-content">
@@ -85,11 +97,7 @@
     </section>
     
 
-<!--NOTICE BOARD-->
-
-<section class="notice">
-	<div class="row">
-	  		  	<!--Principle Msg-->
+ 	<!--Principle Msg-->
 	  	
 	  	<div class="notice-col">
 				  <div class="nb-col">
@@ -103,12 +111,9 @@
             	  </div>
 				  	
 			  </div>
-		 </div>
 		 
-	</div>
+		 
 	
-</section>    
-    
 
 <!-- Course -->
 
@@ -160,7 +165,7 @@
             </div>
             <div class="facilities-col">
                 <img src="cafe.jpg">
-                <h3>A Hot Cup of Happiness<h3>
+                <h3>A Hot Cup of Happiness</h3>
             </div>
             <div class="facilities-col">
                 <img src="playgrnd.jpg">
@@ -170,12 +175,12 @@
         <div class="row">
 			<div class="facilities-col">
                 <img src="ncc.jpg">
-                <a href="nccNss.html" class="extra-curr" style="margin-left: -35px;"><b>NCC</b></a>
+                <a href="nccNss.html" class="extra-curr  rm-btn" style="margin-left: -35px;"><b>NCC</b></a>
              </div> 
                
              <div class="facilities-col">
                 <img src="nss.jpg">
-                <a href="nccNss.html" class="extra-curr" style="margin-left: -30px;"><b>NSS</b></a>
+                <a href="nccNss.html" class="extra-curr rm-btn" style="margin-left: -30px;"><b>NSS</b></a>
             </div>
             
         </div>

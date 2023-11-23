@@ -631,7 +631,6 @@ h3{
 /* PRINCIPLE DESK */
 .prc-img{
 	float: left;
-	margin: 5px;
 	padding-right: 10px;
 }
 
@@ -649,7 +648,7 @@ h3{
 }
 
 .principal-html p{
-	padding: 5px 10px 10px 40px;
+	padding: 5px 10px 10px 50px;
 	font-weight: 400;
 }
 
@@ -775,6 +774,8 @@ h3{
         text-align: left;
         font-size: 5px;
     }
+    
+
 
 
     
