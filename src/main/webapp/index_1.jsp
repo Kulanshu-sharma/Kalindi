@@ -1,39 +1,21 @@
+<%@page import="dtos.NoticeDTO"%>
+<%@page import="bussinessLayer.FrontPageBB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scle=1.0">
+<meta charset="ISO-8859-1">
 <title>Kalindi College : University of Delhi</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="https://www.kalindicollege.in/wp-content/themes/kalindi/assets/images/kc-logo.png"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+<%FrontPageBB.init(request); %>
 </head>
-<style>
-	@media (max-width: 500px) {
-    .logo img {
-    margin-left: -25px;
-    height: 5rem;
-	width: 78px;
-	}
-	.logoTitle {
-	font-size: 20px;
-	}
-	.logo h3{
-	font-size: 9px;
-	}
-	.option1{
-	  margin-right: 36%;
-	}
-	.option2{
-	  margin-right: 36%;
-	}
-  }
-</style>
 <body>
-	<section style="min-height: 100vh;" class="header">
+	<section style="min-height:100vh" class="header">
         <nav>
             <table class="logo">
 				<tr>
@@ -62,7 +44,7 @@
                                 </ul>
                      </li>-->
                      <li><div class="login">
-						  <a href="#" class="dropbtn">LOGIN</a>
+						  <a href="Login_Screen.html" class="dropbtn">LOGIN</a>
 						  <div class="login-content">
 						    <div class="option1"><a href="Login_Screen.html"><b>Student</b></a><br><hr></div>
 						    <div class="option2"><a href="#"><b>Faculty</b></a><br></div>
@@ -89,7 +71,31 @@
 
 <section class="notice">
 	<div class="row">
-	  		  	<!--Principle Msg-->
+		<div class="notice-col" id="notice">
+			<div class="nb-col">
+				<h3>NOTICE BOARD</h3>
+				<div class="notice-tab">
+            	<a href="https://www.kalindicollege.in/notice/#general"><b>General</b></a>
+            	<a href="https://www.kalindicollege.in/notice/#students"><b>Students</b></a>
+            	<a href="https://www.kalindicollege.in/notice/#staff"><b>Staff</b></a>
+            	
+            	<ul>
+					<br>
+					<%for(NoticeDTO generalList : FrontPageBB.generalNotices){ %>
+					<li><a href=<%=generalList.getNavigateURL()%>><%=generalList.getDisplayContent()%></a></li><br>
+					<%}%>
+				
+					<br>
+					<a href="https://www.kalindicollege.in/notice/" class="rm-btn" style="color: white;">View more</a>
+				</ul>
+			
+        	</div>
+			</div>
+			
+        	
+	  	</div>
+	  	
+	  	<!--Principle Msg-->
 	  	
 	  	<div class="notice-col">
 				  <div class="nb-col">
@@ -226,7 +232,7 @@
         <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
         <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
     </div>
-    <p style="text-align: center;">Made with &hearts; by Tech Elites.</p>
+    <p style="text-align: center;">Made with &hearts; by <a href="teampage.html">Tech Elites.</a></p>
     
 </section>
 

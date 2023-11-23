@@ -106,6 +106,7 @@ body {
   text-align: left;
   color: #525f7f;
   background-color: #f8f9fe;
+  width: fit-content;
 }
 
 [tabindex='-1']:focus {
@@ -1177,6 +1178,18 @@ button.bg-white:focus {
   .d-lg-block {
     display: block !important;
   }
+}
+
+@media (max-width: 760px) {
+
+.d-none {
+  display: block !important;
+}
+
+.navbar>.container,
+.navbar>.container-fluid{
+	flex-wrap: nowrap;
+}
 }
 
 .justify-content-center {
