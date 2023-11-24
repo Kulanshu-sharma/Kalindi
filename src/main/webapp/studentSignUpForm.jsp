@@ -114,6 +114,7 @@ text-align:center;
 h4{
 test-align:center;
 }
+
     </style>
         <%
        StudentSignUpFormBB.init(request); 
