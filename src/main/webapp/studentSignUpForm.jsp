@@ -120,7 +120,7 @@ button:hover {
 	 <section class="signup">
 		<div class="split"> 
 		 <div class="container"> 
-		 <img src = "signupPic.jpg">
+		 <img src = "SignUp.jpg">
 		 </div>
 		 <div class="container">
 			 <h1 style="color: cadetblue;font-family: fantasy;"> Student Registration</h1>
