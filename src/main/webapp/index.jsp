@@ -56,7 +56,7 @@
 						  <a href="#" class="dropbtn">NOTICE</a>
 						  <div class="login-content">
 						    <div class="option1"><a href="https://www.kalindicollege.in/notice/#general"><b>General</b></a><br><hr></div>
-						    <div class="option2"><a href="https://www.kalindicollege.in/notice/#students"><b>Students</b></a><br></div>
+						    <div class="option2"><a href="https://www.kalindicollege.in/notice/#students"><b>Students</b></a><br><hr></div>
 						    <div class="option3"><a href="https://www.kalindicollege.in/notice/#staff"><b>Staff</b></a></div>
 						  </div>
 						</div>

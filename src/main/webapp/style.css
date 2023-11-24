@@ -671,6 +671,24 @@ h3{
   display: inline-block;
 }
 
+.Events{
+	position: relative;
+  	display: inline-block;
+}
+
+.Events:hover .login-content {
+    display: block;
+}
+
+.Notice{
+	position: relative;
+  	display: inline-block;
+}
+
+.Notice:hover .login-content {
+    display: block;
+}
+
 .login-content {
   display: none;
   position: absolute;
@@ -697,6 +715,13 @@ h3{
 	background-color: #000;
 	color: #000;
 }
+
+.option3:hover{
+	background-color: #000;
+	color: #000;
+}
+
+
 /*Notice Section */
 
 
