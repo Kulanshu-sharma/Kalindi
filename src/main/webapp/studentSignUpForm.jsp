@@ -181,16 +181,17 @@ button:hover {
     </div>
 	 </section> 
 	 <section class="footer">
-    <h4>About Us</h4>
+    <h4>About Tech Elites</h4>
     <div class="icon">
         <i class="fa-brands fa-facebook" style="color: #3d79e1;"></i>
         <i class="fa-brands fa-twitter" style="color: #4081f2;"></i>
-        <i class="fa-brands fa-instagram" style="color: #df1174;"></i>
+        <a href="https://www.instagram.com/tech__elites/"><i class="fa-brands fa-instagram" style="color: #df1174;"></i></a>
         <i class="fa-brands fa-linkedin" style="color: #2365d7;"></i>
         <i class="fa-brands fa-youtube" style="color: #ef343d;"></i>
     </div>
-    <p>Made with &hearts; by Tech Elites.</p>
- </section>
+    <p style="text-align: center;">Made with &hearts; by Tech Elites.</p>
+    
+</section>
   
   
 <div class="copyright">
