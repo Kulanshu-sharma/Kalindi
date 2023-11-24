@@ -106,6 +106,14 @@ nav img {
 button:hover {
   opacity:1;
 }
+
+.footer {
+background-color: azure;
+text-align:center;
+}
+h4{
+test-align:center;
+}
     </style>
         <%
        StudentSignUpFormBB.init(request); 
