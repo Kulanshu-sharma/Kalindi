@@ -40,9 +40,17 @@
 		width: 50%;
 		margin-left:30px;
 	}
-	.msg p {
-		margin-right:350px;
+	#msg {
+		margin-left:18rem;
 		taxt-align:justify;
+	}
+	.notice-col{
+		width:100%;
+		height:100vh;
+		margin-left:0;
+		margin-left:-250px;
+		text-align: justify;
+		
 	}
 	
 	
@@ -121,8 +129,8 @@
 				  <div class="nb-col" >
                 	<h3>Principle's Message</h3>
                 	<img src="about2.jpg" class="principal-img" id="center" >
-                	<div class="msg">
-						<p style="text-align:justify; margin-left:18rem">Dear Students! Welcome to Kalindi College.<br> Kalindi College, an institution of academic<br> excellence and achievement, was established in<br> 1967...</p><br>
+                	<div class="">
+						<p id="msg" style="text-align:justify; margin-left:18rem">Dear Students! Welcome to Kalindi College.<br> Kalindi College, an institution of academic<br> excellence and achievement, was established in<br> 1967...</p><br>
                 		<a href="principal.html" class="rm-btn" style="color: white; margin-left:18rem">Read more</a>
 					</div>
                 	
