@@ -194,9 +194,7 @@ h1{
     box-sizing: border-box;
     transition: 0.5s;
     overflow: hidden;
-}
-#notice{
-	width: 50%;
+
 }
 
 .nb-col a{

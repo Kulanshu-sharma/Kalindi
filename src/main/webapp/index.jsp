@@ -12,6 +12,12 @@
 <link rel="styleshhet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
 </head>
 <style>
+#center {
+  display: block;
+  margin-left: auto;
+  margin-right: 19rem;
+  width: 25%;
+}
 	@media (max-width: 500px) {
     .logo img {
     margin-left: -25px;
@@ -30,6 +36,18 @@
 	.option2{
 	  margin-right: 36%;
 	}
+	#center{
+		width: 50%;
+		margin-left:30px;
+	}
+	.msg p {
+		margin-right:350px;
+		taxt-align:justify;
+	}
+	
+	
+	
+	
   }
 </style>
 <body>
@@ -99,13 +117,13 @@
 
  	<!--Principle Msg-->
 	  	
-	  	<div class="notice-col">
-				  <div class="nb-col">
+	  	<div class="notice-col" style="padding:1rem 20rem 0.1rem 20rem;">
+				  <div class="nb-col" >
                 	<h3>Principle's Message</h3>
-                	<img src="about2.jpg" class="principal-img">
-                	<div class="">
-						<p>Dear Students! Welcome to Kalindi College.<br> Kalindi College, an institution of academic<br> excellence and achievement, was established in<br> 1967...</p><br>
-                		<a href="principal.html" class="rm-btn" style="color: white;">Read more</a>
+                	<img src="about2.jpg" class="principal-img" id="center" >
+                	<div class="msg">
+						<p style="text-align:justify; margin-left:18rem">Dear Students! Welcome to Kalindi College.<br> Kalindi College, an institution of academic<br> excellence and achievement, was established in<br> 1967...</p><br>
+                		<a href="principal.html" class="rm-btn" style="color: white; margin-left:18rem">Read more</a>
 					</div>
                 	
             	  </div>
@@ -175,12 +193,12 @@
         <div class="row">
 			<div class="facilities-col">
                 <img src="ncc.jpg">
-                <a href="nccNss.html" class="extra-curr  rm-btn" style="margin-left: -35px;"><b>NCC</b></a>
+                <a href="nccNss.html" class="rm-btn" style="margin-left: 10rem; padding-top:5px;"><b>NCC</b></a>
              </div> 
                
              <div class="facilities-col">
                 <img src="nss.jpg">
-                <a href="nccNss.html" class="extra-curr rm-btn" style="margin-left: -30px;"><b>NSS</b></a>
+                <a href="nccNss.html" class=" rm-btn" style="margin-left: 10rem; margin-top:5px;"><b>NSS</b></a>
             </div>
             
         </div>
