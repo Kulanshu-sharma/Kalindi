@@ -123,7 +123,7 @@
     </section>
     
 
- 	<!--Principle Msg-->
+ 	<!--Principle Msg
 	  	
 	  	<div class="notice-col" style="padding:1rem 20rem 0.1rem 20rem;">
 				  <div class="nb-col" >
@@ -136,7 +136,7 @@
                 	
             	  </div>
 				  	
-			  </div>
+			  </div> -->
 		 
 		 
 	
