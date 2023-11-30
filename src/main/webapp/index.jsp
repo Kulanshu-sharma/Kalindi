@@ -18,6 +18,24 @@
   margin-right: 19rem;
   width: 25%;
 }
+
+.disc{
+	background-color:darkslategrey;
+}
+
+.disclaimer{
+		background-color:darkgrey;
+		color:black;
+		top:30%;
+		left:30%;
+		width:40%;
+		height:50%;
+		text-align:center;
+		position:absolute;
+		line-height:1.8rem;
+}
+		
+
 	@media (max-width: 500px) {
     .logo img {
     margin-left: -25px;
@@ -53,12 +71,31 @@
 		
 	}
 	
+	.disclaimer{
+		text-align:center;
+		width:60%;
+		padding-right:5px;
+		margin-left:-45px;
+		line-height:2rem;
+		
+	}
+	
 	
 	
 	
   }
 </style>
 <body>
+	<section style="min-height: 100vh;" class="disc">
+		<div class="disclaimer">
+	  <h1><u>Disclaimer</u></h1>
+	    <h2><p> This website is a project made by Techelites Team students of Bvoc. (Web Designing ) course of Kalindi College Delhi University.</p> 
+			
+			<p>For official website please visit <a href="https://www.kalindicollege.in/">KalindiCollege.in</a></p>
+			</h2>
+
+  </div>
+	</section>
 	<section style="min-height: 100vh;" class="header">
         <nav>
             <table class="logo">
