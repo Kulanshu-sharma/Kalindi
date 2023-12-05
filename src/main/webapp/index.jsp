@@ -100,7 +100,7 @@
         <nav>
             <table class="logo">
 				<tr>
-					<td class="logo-img"><img src="kalindi-logo.png"></td>
+					<td class="logo-img"><img src="newLogo.jpg"></td>
 					<td class="logo-cont">
 						<h1 class="logoTitle">Kalindi College</h1>
 		            	<h3 class="logoTitle">UNIVERSITY OF DELHI</h3>
